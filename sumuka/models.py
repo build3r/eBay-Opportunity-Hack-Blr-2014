@@ -95,7 +95,7 @@ class Surgery(db.Model):
                 vars(self).update({each:kwargs.get(each)})
         assert self.status in surg_status_enums, 'Wrong surgical status given'
 
-class Transactions(db.Model):
+class Trxns(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     donor_id = db.Column('donor', db.Integer, db.ForeignKey('donor.id'), nullable=False)
     child_id = db.Column('child', db.Integer, db.ForeignKey('child.id'), nullable=False)
@@ -104,7 +104,7 @@ class Transactions(db.Model):
 
     def __init__(self, **kwargs):
         for each in kwargs.keys():
-            if each in utils.get_user_attributes(Transactions):
+            if each in utils.get_user_attributes(Trxns):
                 vars(self).update({each:kwargs.get(each)})
         assert self.status in trxn_status_enums, logging.warn('invalid transaction status')
 

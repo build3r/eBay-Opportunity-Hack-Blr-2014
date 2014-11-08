@@ -61,6 +61,7 @@ def child(child_id=None):
                 db.session.add(oldChild)
                 db.session.commit()
                 # update
+                return json.dumps({'status':'success'})
             else:
                 # create request
                 newChild = Child(args.get('name'), args.get('cost'), args.get('status','new'))
@@ -105,6 +106,7 @@ def SurgeryApi():
                 db.session.add(oldSurgery)
                 db.session.commit()
                 # update
+                return json.dumps({'status':'success'})
             else:
                 # create request
                 newSurgery = Surgery(args.get('name'), args.get('cost'), args.get('status','new'))
@@ -130,23 +132,25 @@ def SurgeryApi():
 def Transaction():
     if request.method == 'GET':
         if not trxn_id:
-            allTransactions = Transactions.query.all()
-            return json.dumps(allTransactions)
+            allTrxns = Trxns.query.all()
+            return json.dumps(allTrxns)
         else:
-            Transactions = Transactions.query.filter_by(id=trxn_id)
-            return json.dumps(Transactions)
+            Trxns = Trxns.query.filter_by(id=trxn_id)
+            return json.dumps(Trxns)
     try:
         if request.method == 'POST':
+            import pdb; pdb.set_trace()
             args = request.form
-            trxn_exists = Transactions.query.filter_by(name=args.get('name')).all()
+            trxn_exists = Trxns.query.filter_by(name=args.get('name')).all()
             if trxn_exists:
                 assert len(trxn_exists) ==  1, logging.warn("Too many trxn records found in db")
                 oldTransaction = trxn_exists[0]
                 for k,v in args.iteritems():
-                    if k in utils.get_user_attributes(Transactions):
+                    if k in utils.get_user_attributes(Trxns):
                         oldTransaction[k] = v
                 db.session.add(oldTransaction)
                 db.session.commit()
+                return json.dumps({'status':'success'})
                 # update
             else:
                 # create request
@@ -160,9 +164,9 @@ def Transaction():
                 logging.warn("Found multiple chiled records for one name ")
                 return json.dumps({'status':'fail'})
             else:
-                Transactions = Transaction.query.filter_by(id=trxn_id).all()
-                assert len(Transactions) == 1, logging.warn("Found multiple surgery records for one name ")
-                for trxn in Transactions:
+                Trxns = Transaction.query.filter_by(id=trxn_id).all()
+                assert len(Trxns) == 1, logging.warn("Found multiple surgery records for one name ")
+                for trxn in Trxns:
                     db.session.delete(trxn)
                 db.session.commit()
                 return json.dumps({'status':'success'})
@@ -216,7 +220,7 @@ def Donors():
 admin = Admin(app)
 
 admin.add_view(ModelView(Donor,db.session))
-#admin.add_view(ModelView(Transactions,db.session))
+admin.add_view(ModelView(Trxns,db.session))
 admin.add_view(ModelView(Surgery,db.session))
 
 admin.add_view(fileadmin.FileAdmin(base_path+ "/images", name="images"))
