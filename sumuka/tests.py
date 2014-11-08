@@ -3,7 +3,7 @@ import random
 from models import *
 resources = ['/child', '/donor', '/surgery', ] #'/transaction']
 url_params = {'/child':{'name':'testchild' + str(random.choice(range(5))), 'cost':10000,},
-              '/donor':{'name':'testdonor'+ str(random.choice(range(5))),'donated_amnt':2000},
+        '/donor':{'name':'testdonor'+ str(random.choice(range(5))),'donated_amnt':2000, 'email':'testmail@google.com'},
               '/surgery':{'name':'testsurgery'+ str(random.choice(range(5))),},
 #              '/transaction':{'name':'testtrxn'+ str(random.choice(range(5)))}
               }
