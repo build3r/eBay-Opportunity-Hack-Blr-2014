@@ -1,8 +1,57 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionMenuTextColor">@color/gold</item>
     </style>
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/saytrees_green</item>
+        <item name="android:titleTextStyle">@style/MyActionBar.Text</item>
+    </style>
+
+    <style name="MyActionBar.Text" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/gold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="FullHeightDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="ProfileTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/ProfileActionBar</item>
+    </style>
+
+    <style name="ProfileActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/profile_bg</item>
+        <item name="android:titleTextStyle">@style/ProfileActionBar.Text</item>
+    </style>
+
+    <style name="ProfileActionBar.Text" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+
+    <style name="SwachhPostTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/SwachhPostActionBar</item>
+    </style>
+
+    <style name="SwachhPostActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/swachh_post_bg</item>
+        <item name="android:titleTextStyle">@style/SwachhPostActionBar.Text</item>
+    </style>
+
+    <style name="SwachhPostActionBar.Text" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 
 </resources>
