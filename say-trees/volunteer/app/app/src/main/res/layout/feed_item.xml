@@ -52,7 +52,7 @@
                         android:marqueeRepeatLimit="marquee_forever"
                         android:scrollHorizontally="true"
                         android:singleLine="true"
-                        android:text="Swachh bhai"
+                        android:text="Event Name"
                         android:textSize="@dimen/feed_item_profile_name"
                         android:textStyle="bold" />
 
@@ -134,7 +134,7 @@
 
 
                 <TextView
-                    android:id="@+id/priority"
+                    android:id="@+id/organizer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="marquee"
@@ -143,7 +143,7 @@
                     android:padding="5dp"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
-                    android:text="Low Priority"
+                    android:text="Organizer"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 

@@ -14,7 +14,7 @@ import android.widget.ListView;
 import java.util.List;
 
 import in.bigo.saytrees.adapter.FeedListAdapter;
-import in.bigo.saytrees.model.SwachhFeedItem;
+import in.bigo.saytrees.model.CompletedEvent;
 
 public class EndlessListView extends ListView implements OnScrollListener {
 
@@ -51,7 +51,7 @@ public class EndlessListView extends ListView implements OnScrollListener {
     }
 
     //	4
-    public void addNewData(List<SwachhFeedItem> data) {
+    public void addNewData(List<CompletedEvent> data) {
         this.removeFooterView(footer);
         adapter.append(data);
         adapter.notifyDataSetChanged();

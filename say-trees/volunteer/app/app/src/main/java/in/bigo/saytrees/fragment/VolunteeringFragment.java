@@ -33,7 +33,7 @@ import in.bigo.saytrees.activity.LauncherActivity;
 import in.bigo.saytrees.adapter.FeedListAdapter;
 import in.bigo.saytrees.controller.SharedPreferencesController;
 import in.bigo.saytrees.customview.EndlessListView;
-import in.bigo.saytrees.model.SwachhFeedItem;
+import in.bigo.saytrees.model.CompletedEvent;
 import in.bigo.saytrees.utils.AppConstants;
 import in.bigo.saytrees.utils.AppController;
 import in.bigo.saytrees.utils.GPSTracker;
@@ -48,8 +48,8 @@ public class VolunteeringFragment extends Fragment implements View.OnClickListen
     private ProgressBar progressBar;
     private EndlessListView listView;
     private FeedListAdapter listAdapter;
-    private List<SwachhFeedItem> feedItems;
-    private List<SwachhFeedItem> returnedfeedItems;
+    private List<CompletedEvent> feedItems;
+    private List<CompletedEvent> returnedfeedItems;
     private String URL_FEED = AppConstants.SERVER_HOST_ADDRESS + AppConstants.FETCH_ALL_ASSIGNED;
     private String URL_SUFFIX1 = "&size=";
     private String URL_SUFFIX2 = "&start=";
@@ -106,8 +106,8 @@ public class VolunteeringFragment extends Fragment implements View.OnClickListen
 
         listView = (EndlessListView) rootView.findViewById(R.id.endlesslist);
 
-        feedItems = new ArrayList<SwachhFeedItem>();
-        returnedfeedItems = new ArrayList<SwachhFeedItem>();
+        feedItems = new ArrayList<CompletedEvent>();
+        returnedfeedItems = new ArrayList<CompletedEvent>();
 
         listAdapter = new FeedListAdapter(this.getActivity(), feedItems);
 
@@ -129,7 +129,7 @@ public class VolunteeringFragment extends Fragment implements View.OnClickListen
 //                        if (response != null) {
 //
 //                            API_OFFSET += API_LIMIT;
-//                            returnedfeedItems = new ArrayList<SwachhFeedItem>();
+//                            returnedfeedItems = new ArrayList<CompletedEvent>();
 //                            returnedfeedItems = parseJsonFeed(response);
 //                            if (returnedfeedItems != null) {
 //                                //  for (int i = 0; i < returnedfeedItems.size(); i++)
@@ -229,7 +229,7 @@ public class VolunteeringFragment extends Fragment implements View.OnClickListen
                 if (response != null) {
 
                     API_OFFSET += API_LIMIT;
-                    returnedfeedItems = new ArrayList<SwachhFeedItem>();
+                    returnedfeedItems = new ArrayList<CompletedEvent>();
                     returnedfeedItems = parseJsonFeed(response);
                     if (returnedfeedItems != null) {
                         for (int i = 0; i < returnedfeedItems.size(); i++)
@@ -258,14 +258,14 @@ public class VolunteeringFragment extends Fragment implements View.OnClickListen
     /**
      * Parsing json reponse and passing the data to feed view list adapter
      */
-    private List<SwachhFeedItem> parseJsonFeed(JSONObject feedArray) {
-        List<SwachhFeedItem> parsedItems = new ArrayList<SwachhFeedItem>();
-        try {
+    private List<CompletedEvent> parseJsonFeed(JSONObject feedArray) {
+        List<CompletedEvent> parsedItems = new ArrayList<CompletedEvent>();
+        /*try {
 
             int length = feedArray.length();
             if (length == 0) {
-                SwachhFeedItem item = new SwachhFeedItem();
-                item.setName("No Content available");
+                CompletedEvent item = new CompletedEvent();
+                item.setEventName("No Content available");
                 return null;
             }
 
@@ -274,7 +274,7 @@ public class VolunteeringFragment extends Fragment implements View.OnClickListen
                 String id = iterator.next().toString();
                 JSONObject feedObj = (JSONObject) feedArray.get(id);
 
-                SwachhFeedItem item = new SwachhFeedItem();
+                CompletedEvent item = new CompletedEvent();
                 item.setId(id);
                 item.setName(feedObj.getString("userId"));
 
@@ -326,14 +326,14 @@ public class VolunteeringFragment extends Fragment implements View.OnClickListen
 
                 parsedItems.add(item);
             }
-
+*/
             return parsedItems;
 
 
-        } catch (JSONException e) {
+        /*} catch (JSONException e) {
             e.printStackTrace();
             return null;
-        }
+        }*/
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

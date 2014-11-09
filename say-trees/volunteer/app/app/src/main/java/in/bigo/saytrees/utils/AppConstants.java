@@ -21,7 +21,7 @@ public class AppConstants {
     public static final String FETCH_ALL_ASSIGNED="/protected/fetchassigneddirt?location=";
     public static final String COMPLETE_A_TASK="/protected/completedirt";
     public static final String FETCH_ALL_COMPLETED="/protected/fetchcompleteddirt";
-
+    public static final String FETCH_COMPLETED_EVENTS="/api/fetchcompletedevents";
 
     //Hackaton
     public static final String FETCH_EVENTS = "/api/fetchevents";

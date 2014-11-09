@@ -36,18 +36,18 @@ import in.bigo.saytrees.activity.ImageFullViewActivity;
 import in.bigo.saytrees.activity.SwachhMapActivity;
 import in.bigo.saytrees.controller.SharedPreferencesController;
 import in.bigo.saytrees.customview.RoundedImageView;
-import in.bigo.saytrees.model.SwachhFeedItem;
+import in.bigo.saytrees.model.CompletedEvent;
 import in.bigo.saytrees.utils.AppConstants;
 import in.bigo.saytrees.utils.AppController;
 
 public class FeedListAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater inflater;
-    private List<SwachhFeedItem> feedItems;
+    private List<CompletedEvent> feedItems;
     ImageLoader imageLoader;
     SharedPreferencesController sharedPreferencesController;
 
-    public FeedListAdapter(Activity activity, List<SwachhFeedItem> feedItems) {
+    public FeedListAdapter(Activity activity, List<CompletedEvent> feedItems) {
         this.activity = activity;
         //imageLoader = AppController.getInstance(activity.getApplicationContext()).getImageLoader();
         imageLoader = ImageLoader.getInstance();
@@ -89,7 +89,7 @@ public class FeedListAdapter extends BaseAdapter {
             holder.feedDescription = (TextView) convertView.findViewById(R.id.description);
             holder.feedImageView = (ImageView) convertView
                     .findViewById(R.id.feedImage1);
-            holder.severity = (TextView) convertView.findViewById(R.id.priority);
+            holder.organizer = (TextView) convertView.findViewById(R.id.organizer);
             holder.mapButton = (ImageView) convertView.findViewById(R.id.map);
             holder.iSwachh = (ImageView) convertView.findViewById(R.id.swachh);
             holder.likesCount = (TextView) convertView.findViewById(R.id.like_count);
@@ -108,9 +108,9 @@ public class FeedListAdapter extends BaseAdapter {
         sharedPreferencesController = SharedPreferencesController.getSharedPreferencesController(activity);
 
 
-        final SwachhFeedItem item = feedItems.get(position);
+        final CompletedEvent item = feedItems.get(position);
 
-        holder.name.setText(item.getUserHandle());
+        holder.name.setText(item.getEventName());
 
         // Converting timestamp into x ago format
         CharSequence timeAgo = DateUtils.getRelativeTimeSpanString(
@@ -118,19 +118,13 @@ public class FeedListAdapter extends BaseAdapter {
                 System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
         holder.timestamp.setText(timeAgo);
 
-        holder.feedDescription.setText(item.getDescription().replace("minutes", "mins").replace("hours", "hr").replace("days", "d").replace(" ago", ""));
+        holder.feedDescription.setText(item.getDescription());
+        //holder.feedDescription.setText(item.getDescription().replace("minutes", "mins").replace("hours", "hr").replace("days", "d").replace(" ago", ""));
 
         // user profile pic
-        imageLoader.displayImage(item.getProfilePic(), holder.profilePic);
+//        imageLoader.displayImage(item.getProfilePic(), holder.profilePic);
 
-
-        if(item.getSeverity().equals("HIGH"))
-            holder.severity.setText("High priority");
-        else if(item.getSeverity().equals("MEDIUM"))
-            holder.severity.setText("Medium priority");
-        else if(item.getSeverity().equals("LOW"))
-            holder.severity.setText("Low priority");
-
+        holder.organizer.setText(item.getOrganizer());
 
         // Feed image
         if (item.getImage() != null) {
@@ -160,9 +154,11 @@ public class FeedListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, SwachhMapActivity.class);
-                intent.putExtra("latitude", item.getLatitude());
-                intent.putExtra("longitude", item.getLongitude());
-                intent.putExtra("address", item.getLocationAddress());
+                String loc = item.getLocation();
+                String[] locArr = loc.split(",");
+                intent.putExtra("latitude", locArr[0]);
+                intent.putExtra("longitude", locArr[1]);
+                intent.putExtra("address", item.getAddress());
                 intent.putExtra("description", item.getDescription());
                 intent.putExtra("landmark", item.getLandmark());
                 activity.startActivity(intent);
@@ -170,7 +166,7 @@ public class FeedListAdapter extends BaseAdapter {
             }
         });
 
-        holder.location.setText(item.getLocationAddress());
+        holder.location.setText(item.getAddress());
         holder.location.setSelected(true);
 
         if (item.getLikesCount() > 0) {
@@ -423,7 +419,7 @@ public class FeedListAdapter extends BaseAdapter {
         ImageView assignToMe;
         ImageView completeDirt;
         TextView likesCount;
-        TextView severity;
+        TextView organizer;
         RelativeLayout commentLayout;
         RelativeLayout likeLayout;
         int commentCount;
@@ -434,7 +430,7 @@ public class FeedListAdapter extends BaseAdapter {
     }
 
 
-    public void append(List<SwachhFeedItem> extraFeedItems) {
+    public void append(List<CompletedEvent> extraFeedItems) {
 
         int listSize = extraFeedItems.size();
         for(int i = 0; i < listSize; ++i) {

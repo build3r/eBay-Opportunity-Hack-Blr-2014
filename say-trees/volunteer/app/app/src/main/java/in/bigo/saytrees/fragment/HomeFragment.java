@@ -33,7 +33,7 @@ import in.bigo.saytrees.adapter.FeedListAdapter;
 import in.bigo.saytrees.controller.SharedPreferencesController;
 import in.bigo.saytrees.customview.EndlessListView;
 import in.bigo.saytrees.model.CommentItem;
-import in.bigo.saytrees.model.SwachhFeedItem;
+import in.bigo.saytrees.model.CompletedEvent;
 import in.bigo.saytrees.utils.AppConstants;
 import in.bigo.saytrees.utils.AppController;
 import in.bigo.saytrees.utils.GPSTracker;
@@ -48,9 +48,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
     private ProgressBar progressBar;
     private EndlessListView listView;
     private FeedListAdapter listAdapter;
-    private List<SwachhFeedItem> feedItems;
-    private List<SwachhFeedItem> returnedfeedItems;
-    private String URL_FEED = AppConstants.SERVER_HOST_ADDRESS + AppConstants.FETCH_NEAREST_DIRT;
+    private List<CompletedEvent> feedItems;
+    private List<CompletedEvent> returnedfeedItems;
+    private String URL_FEED = AppConstants.SERVER_HOST_ADDRESS + AppConstants.FETCH_COMPLETED_EVENTS;
     private String URL_SUFFIX1 = "&size=";
     private String URL_SUFFIX2 = "&start=";
     private double latitude, longitude;
@@ -91,7 +91,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
             gps.showSettingsAlert();
         }
 
-        URL_FEED += latitude + "," + longitude;
+        //URL_FEED += latitude + "," + longitude;
 
         String latLongValue = latitude + "," + longitude;
 
@@ -106,8 +106,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
 
         listView = (EndlessListView) rootView.findViewById(R.id.endlesslist);
 
-        feedItems = new ArrayList<SwachhFeedItem>();
-        returnedfeedItems = new ArrayList<SwachhFeedItem>();
+        feedItems = new ArrayList<CompletedEvent>();
+        returnedfeedItems = new ArrayList<CompletedEvent>();
 
         listAdapter = new FeedListAdapter(this.getActivity(), feedItems);
 
@@ -121,7 +121,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
 
 
                 // making fresh volley request and getting json
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_FEED + URL_SUFFIX1 + API_LIMIT + URL_SUFFIX2 + API_OFFSET, null, new Response.Listener<JSONObject>() {
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_FEED, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
@@ -129,7 +129,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
                         if (response != null) {
 
                             API_OFFSET += API_LIMIT;
-                            returnedfeedItems = new ArrayList<SwachhFeedItem>();
+                            returnedfeedItems = new ArrayList<CompletedEvent>();
                             returnedfeedItems = parseJsonFeed(response);
                             if (returnedfeedItems != null) {
                               //  for (int i = 0; i < returnedfeedItems.size(); i++)
@@ -161,7 +161,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
         //Log.d("url work", URL_FEED + URL_SUFFIX1 + API_LIMIT + URL_SUFFIX2 + API_OFFSET);
 
         // making fresh volley request and getting json
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, URL_FEED + URL_SUFFIX1 + API_LIMIT + URL_SUFFIX2 + API_OFFSET, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, URL_FEED, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -213,7 +213,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
 
 
         // making fresh volley request and getting json
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_FEED + URL_SUFFIX1 + API_LIMIT + URL_SUFFIX2 + API_OFFSET, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_FEED , null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -221,7 +221,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
                 if (response != null) {
 
                     API_OFFSET += API_LIMIT;
-                    returnedfeedItems = new ArrayList<SwachhFeedItem>();
+                    returnedfeedItems = new ArrayList<CompletedEvent>();
                     returnedfeedItems = parseJsonFeed(response);
                     if (returnedfeedItems != null) {
                         for (int i = 0; i < returnedfeedItems.size(); i++)
@@ -250,14 +250,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
     /**
      * Parsing json reponse and passing the data to feed view list adapter
      */
-    private List<SwachhFeedItem> parseJsonFeed(JSONObject feedArray) {
-        List<SwachhFeedItem> parsedItems = new ArrayList<SwachhFeedItem>();
+    private List<CompletedEvent> parseJsonFeed(JSONObject feedArray) {
+        List<CompletedEvent> parsedItems = new ArrayList<CompletedEvent>();
         try {
 
             int length = feedArray.length();
             if (length == 0) {
-                SwachhFeedItem item = new SwachhFeedItem();
-                item.setName("No Content available");
+                CompletedEvent item = new CompletedEvent();
+                item.setEventName("No Content available");
                 return null;
             }
 
@@ -266,50 +266,28 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
                 String id = iterator.next().toString();
                 JSONObject feedObj = (JSONObject) feedArray.get(id);
 
-                SwachhFeedItem item = new SwachhFeedItem();
+                CompletedEvent item = new CompletedEvent();
                 item.setId(id);
-                item.setName(feedObj.getString("userId"));
+                item.setEventId(feedObj.getString("eventId"));
 
                 // Image might be null sometimes
-                String image = feedObj.isNull("imageUrl") ? null : feedObj
-                        .getString("imageUrl");
+                String image = feedObj.isNull("url") ? null : feedObj
+                        .getString("url");
                 item.setImage(image);
-                item.setStatus(feedObj.getString("status"));
-                item.setProfilePic(AppConstants.GRAPH_API_URL + feedObj.getString("userId") + AppConstants.GRAPH_API_IMAGE_SUFFIX);
+                item.setVarieties(feedObj.getString("varieties"));
+                //item.setProfilePic(AppConstants.GRAPH_API_URL + feedObj.getString("userId") + AppConstants.GRAPH_API_IMAGE_SUFFIX);
                 item.setTimeStamp(feedObj.getString("timestamp"));
-                item.setSeverity(feedObj.getString("severity"));
+                item.setPlantedSaplings(feedObj.getString("plantedSaplings"));
+                item.setVolunteers(feedObj.getString("volunteers"));
+                item.setOrganizer(feedObj.getString("organizer"));
+                item.setEventTime(feedObj.getString("eventTime"));
+                item.setEventName(feedObj.getString("eventName"));
                 item.setLandmark(feedObj.getString("landmark"));
-                item.setDescription(feedObj.getString("description"));
-                item.setLatitude((Double) feedObj.getJSONArray("location").get(0));
-                item.setLongitude((Double) feedObj.getJSONArray("location").get(1));
-                item.setCommentsCount(feedObj.getInt("commentsCount"));
-                item.setLikesCount(feedObj.getInt("likesCount"));
-                item.setLiked(feedObj.getBoolean("isLiked"));
-                item.setUserHandle(feedObj.getString("userHandle"));
-                item.setEmail(feedObj.getString("email"));
-                item.setFbUserId(feedObj.getString("userId"));
-                item.setLocationAddress(feedObj.getString("locationAddress"));
-                JSONArray jsonArray = new JSONArray();
-
-                ArrayList<CommentItem> commentItemArrayList = new ArrayList<CommentItem>();
-
-                jsonArray = feedObj.getJSONArray("comments");
-
-
-                if (jsonArray.length() > 0) {
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jObj = new JSONObject();
-                        CommentItem commentItem = new CommentItem();
-                        jObj = jsonArray.getJSONObject(i);
-                        commentItem.setComment(jObj.getString("comment"));
-                        commentItem.setDirtId(jObj.getString("dirtId"));
-                        commentItem.setTimestamp(jObj.getString("timestamp"));
-                        commentItem.setUserId(jObj.getString("userId"));
-                        //commentItem.setUserHandle(jObj.getString("userHandle"));
-                        commentItemArrayList.add(commentItem);
-                    }
-                    item.setCommentItems(commentItemArrayList);
-                }
+                item.setMonth(feedObj.getString("month"));
+                item.setDay(feedObj.getString("day"));
+                item.setLocation(feedObj.getString("location"));
+                //item.setAddress(feedObj.getString("address"));
+                item.setAddress("Address");
 
 
                 // url might be null sometimes

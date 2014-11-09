@@ -41,12 +41,12 @@
     <string-array name="menu_items">
         <item>HOME</item>
         <item>MAP</item>
-        <item>EVENTS</item>
-        <item>COMPLETED</item>
-        <item>DONATE</item>
-        <item>EMAIL US</item>
+        <item>UPCOMING</item>
+        <item>KIND</item>
+        <item>TREE SPECIES</item>
         <item>SHARE LOVE</item>
         <item>SETTINGS</item>
+        <item>DONATE</item>
 
     </string-array>
     <string-array name="severity_array">
