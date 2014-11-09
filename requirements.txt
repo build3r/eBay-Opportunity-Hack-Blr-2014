@@ -20,11 +20,7 @@ itsdangerous==0.24
 oauth==1.0.1
 oauth2==1.5.170
 python-dateutil==1.5
-python-debian==0.1.21ubuntu1
-python-virtkey==0.60.0
 python-wtf==0.1.1
-python-xlib==0.14
-pytz==2011k
 requests==2.3.0
 rsa==3.1.4
 
