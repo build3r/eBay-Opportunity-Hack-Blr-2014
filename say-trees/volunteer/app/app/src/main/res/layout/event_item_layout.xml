@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/cards_background"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/event_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_event_black_48dp" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/event_icon"
+        android:text="10 Nov"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginTop="3dp"
+        android:layout_height="wrap_content" />
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingBottom="10dp"
+        android:layout_toRightOf="@+id/event_icon">
+
+        <TextView
+            android:id="@+id/event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Plant Saplings at Bellandur"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/event_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/event_name"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:text="Bellandur, Bangalore - 560047"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/event_location"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_heart_click" />
+
+        <ImageView
+            android:id="@+id/comment"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/event_location"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/like"
+            android:src="@drawable/ic_comment_click" />
+
+        <ImageView
+            android:id="@+id/join"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/event_location"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/comment"
+            android:src="@drawable/swachh_highfive_click" />
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/join"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/organizer_name"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/event_location"
+            android:text="by"
+            />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="saytrees_green">#0e4f01</color>
+    <color name="light_grey">#f0f0f0</color>
+    <color name="super_light_grey">#f6f6f6</color>
+    <color name="white">#ffffff</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="actionbar_color">#03a9f4</color>
+    <color name="home_background">#e5e5e5</color>
+    <color name="background_color">#333333</color>
+    <color name="splash_text_color">#eaeaea</color>
+    <color name="white_color">#ffffff</color>
+    <color name="login_page_text_color">#727272</color>
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#1b1b1b</color>
+    <color name="list_background_pressed">#0f0f0f</color>
+    <color name="list_divider">#313131</color>
+    <color name="counter_text_bg">#e51c23</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    <color name="profile_bg">#9c27b0</color>
+    <color name="profile_bg_shadow">#c4c4c4</color>
+    <color name="feed_bg">#fafafa</color>
+    <color name="feed_item_bg">#ffffff</color>
+    <color name="feed_item_border">#c2c3c8</color>
+    <color name="link">#0a80d1</color>
+    <color name="timestamp">#a0a3a7</color>
+    <color name="swachh_post_bg">#673ab7</color>
+    <color name="swachh_post_hintcolor">#673ab7</color>
+    <color name="swachh_post_trans_bg">#55000000</color>
+    <color name="gold">#FAFAD2</color>
+
+
+    <color name="green">#2ecc71</color>
+    <color name="red">#c0392b</color>
+    <color name="blue">#3498db</color>
+    <color name="yellow">#f1c40f</color>
+
+    <!-- Indian flag -->
+    <color name="flat_orange">#F9090E</color>
+    <color name="flat_white">#ecf0f1</color>
+    <color name="flat_green">#1E824C</color>
+
+
+    <!-- color palette -->
+    <color name="color_1">#e00032</color>
+    <color name="color_2">#c51162</color>
+    <color name="color_3">#aa00ff</color>
+    <color name="color_4">#6200ea</color>
+    <color name="color_5">#304ffe</color>
+    <color name="color_6">#00b8d4</color>
+    <color name="color_7">#12c700</color>
+    <color name="color_8">#ffd600</color>
+    <color name="color_9">#dd2c00</color>
+    <color name="color_10">#263238</color>
+
+
+
+
+
+
+</resources>

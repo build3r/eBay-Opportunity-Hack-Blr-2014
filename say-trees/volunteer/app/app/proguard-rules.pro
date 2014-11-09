@@ -15,3 +15,8 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+<<<<<<< HEAD
+
+-keep class com.jpardogo.android.googleprogressbar.** { *; }
+=======
+>>>>>>> eb9f28778b8f3578845792fd41f95e9ed85bf238
