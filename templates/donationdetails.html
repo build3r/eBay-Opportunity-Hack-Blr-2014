@@ -125,12 +125,17 @@ window.onmouseup=right;
                </tr><!--box2tabler1end-->
       </table><!--box2tableend-->  
       <table width="auto">
-      <tr><th>Donor Name</th><th>Amount Donated</th><th>Payment Type</th></tr>
+      <tr><th>Donor Name</th><th>Amount Donated</th><th>Payment Type</th><th>Receipt</th></tr>
       <h4>Your donation details are below:</h4>
+      
          {% for entry in details %}
-          <tr><td>{{ entry.name}}</td>
+          <tr>
+          <br>
+          <td>{{ entry.name}}</td>
           <td>{{ entry.donated_amnt}}</td>
-          <td>{{ entry.payment_type}}</td></tr>
+          <td>{{ entry.payment_type}}</td>
+          <td ><a href="/generateReceipt?name={{entry.name}}&amount={{entry.donated_amnt}}&payment_type={{entry.payment_type}}">Receipt</a></td>
+          </tr>
          {% endfor %}
          </table>
        </div><!--box2-->

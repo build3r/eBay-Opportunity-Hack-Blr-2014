@@ -19,6 +19,15 @@ def index():
 def donation():
     return render_template("donation.html")
 
+@app.route("/generateReceipt", methods=["GET","POST"], defaults={'path': ''})
+@app.route("/generateReceipt<path:path>", methods=["GET","POST"])
+def generateReceipt(path):
+    name = request.args['name']
+    amount = request.args["amount"]
+    payment_type = request.args["payment_type"]
+    print name, amount, payment_type, "******************"
+    return render_template("receipt.html", name=name,amount=amount, payment_type=payment_type)
+
 
 @app.route('/child', methods=['GET','POST','DELETE'])
 @app.route('/child/<child_id>', methods=['GET','DELETE'])
@@ -26,7 +35,7 @@ def child(child_id=None):
     if request.method == 'GET':
         if not child_id:
             allChildren = Child.query.all()
-            return json.dumps(allChildren)
+            return render_template("donationdetails.html", details=allChildren)
         else:
             Children = Child.query.filter_by(id=child_id)
             return render_template("donationdetails.html", details=ddonors)
