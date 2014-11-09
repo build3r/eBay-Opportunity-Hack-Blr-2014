@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	@package	contactus
+	@copyright	Copyright (c)2013 Nicholas K. Dionysopoulos / AkeebaBackup.com
+	@license	GNU General Public License version 2 or later
+	
+	Items view form file
+-->
+<form validate="true" serverside_validate="true">
+	<fieldset name="personal"
+		label="Donors Details"
+		class="tab-pane active" id="VIDIYAL-personal"
+	>
+		<field name="vidial_donor_id" type="hidden"/>
+		
+		<field name="Name" type="text"	label="Donor Name"	description="Donor name"
+			class="input-xlarge" required="true" default="sample" />
+			
+		<field name="Amount" type="text"	label="Amount paied"	description="Amount paied by donor"
+			class="input-xlarge" required="true" default="sample" />
+				
+		<field name="Currency" type="list" label="Currency" description="Currency type"
+			class="input-xlarge" required="true" default="INR">
+			<option value="INR">INR</option>
+			<option value="USD">USD</option>
+			<option value="ASD">ASD</option>
+		</field>
+
+		<field name="EMail" type="email"	label="E-Mail ID"	description="E-Mail ID"
+			class="input-xlarge" required="true" default="" />
+		
+		<field name="Note" type="textarea"	label="Notes"	description="Notes"
+			class="input-xlarge" required="true"  />
+			
+		<field name="DateOfBirth" type="calendar"	label="Date of Birth"	description="Date of Birth"
+			class="input-xlarge" required="true" />
+			
+		<field name="DateOfPayment" type="calendar"	label="Date of Payment"	description="Date of payment"
+			class="input-xlarge" required="true" />
+		
+	</fieldset>
+</form>

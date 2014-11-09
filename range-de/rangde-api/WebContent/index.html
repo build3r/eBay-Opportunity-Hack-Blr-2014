@@ -1,26 +1,124 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Timeline Test</title>
-    <meta charset="UTF-8">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  </head>
-  <body>
-    Testing Index Page.
-    <script type="text/javascript">
-	  $(document).ready(function(){
-	    $.ajax({
-	       	url: "/rangde-api/rest/hello",
-	       	type: "GET",
-	       	contentType: "text/plain",
-	       	success: function (ajax_response) {
-	       		console.log("Success!");
-	       	},
-	       	error: function() {
-	            console.log("Failed!");
-	        }
-	    });   
-	  });
-    </script>
+
+<head>
+    <title>Search Page</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <style type="text/css">
+    .submitBtn, .loginBtn {
+		background: rgba(52, 204, 4, 0.69);
+	}	
+	
+    </style>
+</head>
+
+<body class="searchPage">
+    <div class="gridWrapper headerSecWrapper">
+    <div class="pageWrapper">
+        <div class="gridWrapper">
+        	<div class="grid4">
+        		<a href="/rangde-api/index.html"><img src="images/RangDeLife.png" alt="" height="80px"/></a>
+        	</div>
+        	<div class="grid8 pull-down-20">
+        		<ul class="section headerNavLinksSec">
+        			<li class="first"><a href="" class="signUpBtn">Sign Up</a></li>
+        			<li><a href="" class="loginBtn">Login</a></li>        			
+        			<li><a href="/rangde-api/index.html">Saved Life</a></li>
+        			<li><a href="">Volunteer</a></li>
+        			<li><a href="/rangde-api/searchPage.html">Donate</a></li>        			
+        		</ul>
+        	</div>            
+        </div>
+	</div>
+	</div>
+	<div class="gridWrapper heroSecWrapper" >	
+	<div class="heroInnerSecWrapper">
+	<div class="pageWrapper">
+		<div class="introTxtSecWrapper txt-center">
+                        <h1 class="heroHeading">Welcome to world's first online peer-to-peer funding platform to fund life and livelihood-threatening conditions for India's poor.</h1>
+                        <div class="section pull-down-30">
+                        	<a class="browseMorePatients" href="/rangde-api/searchPage.html">View Patients</a>
+                        </div>
+                        <p class="animatedArrow ttp" onclick="scrollToPosition('.pageSectionDivider')" title="scroll down to see more"><i class="fa fa-chevron-down"></i></p>
+                    </div>
+                    </div>
+                    </div>
+    </div>
+    <div class="section pageSectionDivider pull-down-0-im">
+    <div class="pageWrapper">
+    	<h4 class="mediumSubHeading">Life Doctors, Life Volunteers, Life Angels, Near Real-time updates and Transparency. This time, we're not about livelihoods. We're about life.</h4>
+    		<h2 class="txt-center sectionHeading" style="margin-bottom:10px;">How Rang De Life Works</h2>
+    		<div class="sectio">
+    			<span style="width: 28%;height: 2px;background: #eee;margin: 0 auto;display: block;"></span>
+    		</div>
+	        <div class="gridWrapper txt-center pull-down-60 pull-bottom-40">
+	        	<div class="grid4">	        	
+		        	<ul class="section">
+		        		<li class="icon"><i class="fa fa-users"></i></li>
+		        		<li class="text">
+		        		<strong>Meet a patient</strong><br/>
+		        			Meet a patient who needs life-changing healthcare.
+		        		</li>
+		        	</ul>	        		
+	        	</div>
+	        	<div class="grid4">
+		        	<ul class="section">
+		        		<li class="icon"><i class="fa fa-money"></i></li>
+		        		<li class="text">
+		        		<strong>Donate to fund their care</strong><br/>
+		        		Donate as little as Rs.100 to fund their healthcare.
+		        		</li>
+		        	</ul>	        	
+	        	</div>
+	        	<div class="grid4">
+	        		<ul class="section">
+	        			<li class="icon"><i class="fa fa-mobile"></i><i class="fa fa-paper-plane"></i></li>
+	        			<li class="text">
+	        			<strong>Get an update</strong><br/>
+	        			Get an real-time update after they receive healthcare.
+	        			</li>
+	        		</ul>	        		
+	        	</div>
+	        </div>
+	        <p class="txt-center section pull-bottom-60"><button class="browseMorePatients">See it in action</button></p>
+	    </div>
+	    </div> 
+	    <div class="section pageSectionDivider pull-down-0-im">
+		    <div class="pageWrapper">
+		    <h2 class="txt-center sectionHeading" style="margin-bottom:10px;">Why Rang De Life?</h2>
+		    <div class="sectio">
+    			<span style="width: 28%;height: 2px;background: #eee;margin: 0 auto;display: block;"></span>
+    		</div>
+    		<div class="gridWrapper txt-center pull-down-60 pull-bottom-40">
+		    	<h4 class="mediumSubHeading" style="font-size: 20px;">
+			<strong>Healthcare. Or the lack of it.</strong><br/>
+			20% of Urban India & 28% of Rural India* is unable to pay for life and livelihood-threatening medical treatments. Rang De supports low income households with low cost credit to work hard and rise, but we realized that it took just one medical emergency to push them back to the brink.</h4>
+			
+			<p class="helpTxt txt-right">* Source: 2004 Annual Health Survey by NSSO.</p>
+			</div>
+			</div>
+		</div>
+		
+	    <div class="section guaranteeSecWrapper">
+	    	<div class="pageWrapper">
+	    		<div class="section">
+	    			<div class="gridWrapper">
+		    			<div class="grid4 push-down-30">
+		    				<span class="guaranteIcon"><b id="countNo" class="pulse">100%</b><em>Guaranteed</em></span>
+		    			</div>
+		    			<p class="grid8 guaranteTxt">100% of your donation funds life-changing healthcare; we prove it by being <a href="#transparency_modal" data-toggle="modal">radically transparent</a>.</p>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <script src="js/lib/jquery.min.js"></script>
+	    <script type="text/javascript">
+			var scrollToPosition = function(targetElement){
+				var targetOffset = $(targetElement).offset().top;
+				 $('html, body').animate({scrollTop:targetOffset}, 'slow');
+			};
+		</script>
   </body>
 </html>

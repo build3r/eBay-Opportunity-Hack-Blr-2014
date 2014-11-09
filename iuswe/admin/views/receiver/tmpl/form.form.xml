@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	@package	contactus
+	@copyright	Copyright (c)2013 Nicholas K. Dionysopoulos / AkeebaBackup.com
+	@license	GNU General Public License version 2 or later
+	
+	Items view form file
+-->
+<form validate="true" serverside_validate="true">
+	<fieldset name="personal"
+		label="Receiver Details."
+		class="tab-pane active" id="VIDIYAL-personal"
+	>
+		<field name="vidial_receiver_id" type="hidden"/>
+		
+		<field name="Name" type="text"	label="Receiver name"	description="Receiver name"
+			class="input-xlarge" required="true" default="sample" />
+		
+		<field name="InstituteName" type="text"	label="Institute Name"	description="Receiver studying in Institute"
+			class="input-xlarge" required="true" default="sample" />
+			
+		<field name="Amount" type="text"	label="Amount"	description="Amount Paiyed for fee"
+			class="input-xlarge" required="true" default="sample" />
+				
+		<field name="Currency" type="list" label="Currency" description="Currency Type"
+			class="input-xlarge" required="true" default="INR">
+			<option value="INR">INR</option>
+			<option value="USD">USD</option>
+			<option value="ASD">ASD</option>
+		</field>
+		
+		<field name="Course" type="text"	label="Course"	description="Recever studying the course"
+			class="input-xlarge" required="true" default="sample" />
+		
+		<field name="Fees" type="text"	label="Fees"	description="Recever payed fee type"
+			class="input-xlarge" required="true" default="sample" />
+				
+		<field name="Note" type="textarea"	label="Note"	description="Receivers Notes"
+			class="input-xlarge" required="true"  />
+			
+		<field name="DateOfIssue" type="calendar"	label="Fee paied date"	description="Fee paied date."
+			class="input-xlarge" required="true" />
+		
+		<field name="Longitude" type="text"	label="Longitude"	description="Longitude"
+			class="input-xlarge" required="false"  />
+		<field name="Latitude" type="text"	label="Latitude"	description="Latitude"
+			class="input-xlarge" required="false"  />
+			
+		
+	</fieldset>
+</form>

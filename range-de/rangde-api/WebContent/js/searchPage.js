@@ -56,7 +56,8 @@ var searchPage = {
                             percentageRaised: field.percentageRaised,
                             locations: field.locations,
                             timeLeft: field.timeLeft,
-                            patientName: field.patientName
+                            patientName: field.patientName,
+                            patientId: field.id
                         });                    
                         $('.searchResultsDisplaySec').append(patientDescriptionSecTemplateRendered);
                 	}

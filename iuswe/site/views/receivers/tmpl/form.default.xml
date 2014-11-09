@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	@package	flystaff
+	@copyright	Copyright (c)2013 Nicholas K. Dionysopoulos / AkeebaBackup.com
+	@license	GNU General Public License version 2 or later
+	
+	Items view form file
+-->
+<form
+	type="browse"
+	show_header="1"
+	show_filters="0"
+	show_pagination="1"
+	norows_placeholder="No records.."
+>
+	<headerset>
+		
+				
+		<header name="Name" type="fieldsearchable" sortable="true"
+			buttons="no" buttonclass="btn"
+		/>
+			
+		<header name="InstituteName" type="fieldsearchable" sortable="true"
+			buttons="no" buttonclass="btn"
+		/>
+		
+		<header name="Amount" type="field" sortable="true"
+			buttons="no" buttonclass="btn"
+		/>
+		<header name="Currency" type="field" sortable="true"
+			buttons="no" buttonclass="btn"
+		/>
+		
+		<header name="Course" type="field" sortable="true"
+			buttons="no" buttonclass="btn"
+		/>
+		
+		<header name="Fees" type="field" sortable="true"
+			buttons="no" buttonclass="btn"
+		/>
+		
+	</headerset>
+
+	<fieldset name="items">
+		
+
+		<field name="Name" type="text"
+						show_link="false"
+			url="index.php?option=com_vidiyal&amp;view=receiver&amp;id=[ITEM:ID]"/>
+		
+		<field name="InstituteName" type="text"/>
+		
+		<field name="Amount" type="text"/>
+		
+		<field name="Currency" type="text"/>
+		<field name="Course" type="text"/>
+		 
+		<field name="Fees" type="text"/>
+		
+	</fieldset>
+</form>

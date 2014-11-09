@@ -1,0 +1,101 @@
+select{min-height: 30px;min-width:200px;padding: 8px;}
+    	.heroSecWrapper {
+    background: url(http://i.huffpost.com/gen/1177145/thumbs/o-INDIA-MOTHERS-facebook.jpg) center center no-repeat;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.5, 0, 0, 0.7);
+}
+.heroInnerSecWrapper {
+    background: rgba(22, 188, 255, 0.5);
+    background: -moz-linear-gradient(-45deg, rgba(22, 188, 255, 0.5) 0%, rgba(246, 27, 104, 0.5) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(22, 188, 255, 0.5)), color-stop(100%, rgba(246, 27, 104, 0.5)));
+    background: -webkit-linear-gradient(-45deg, rgba(22, 188, 255, 0.5) 0%, rgba(246, 27, 104, 0.5) 100%);
+    background: -o-linear-gradient(-45deg, rgba(22, 188, 255, 0.5) 0%, rgba(246, 27, 104, 0.5) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(22, 188, 255, 0.5) 0%, rgba(246, 27, 104, 0.5) 100%);
+    background: linear-gradient(135deg, rgba(22, 188, 255, 0.5) 0%, rgba(246, 27, 104, 0.5) 100%);
+    height: inherit;
+}
+.browseMorePatients {
+width: 25%;
+background: #34cc04;
+color: #fff;
+padding: 13px 23px;
+border: 0px;
+font-size: 18pt;
+font-weight: bold;
+}
+.introTxtSecWrapper .heroHeading {
+font-size: 27pt;
+color: #fff;
+text-rendering: optimizelegibility;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+padding: 80px 0px 20px 0px;
+margin: 0px;
+line-height: 1.85;
+}
+.introTxtSecWrapper .subHeading {
+    color: #fff;
+    font-weight: 300;
+    font-size: 20px;
+}
+.headerSecWrapper{margin-bottom:0px;}
+li.icon {
+font-size: 40pt;
+}
+li.text {
+font-size: 13pt;
+font-weight: 300;
+line-height: 1.5;
+padding: 23px 0px 0px 0px;
+}
+.sectionHeading{font-size: 20pt;
+margin: 23px 0px;
+line-height: 1.5;
+}
+.pageSectionDivider {
+background-image: -webkit-linear-gradient(left,#c7ccd1 0,rgba(199,204,209,0) 90%),-webkit-linear-gradient(right,#c7ccd1 0,rgba(199,204,209,0) 90%),-webkit-linear-gradient(left,#c7ccd1 0,#c7ccd1 100%),-webkit-radial-gradient(top center,ellipse cover,#e3e5e8 0,rgba(227,229,232,0) 65%);
+background-image: -moz-linear-gradient(left,#c7ccd1 0,rgba(199,204,209,0) 90%),-moz-linear-gradient(right,#c7ccd1 0,rgba(199,204,209,0) 90%),-moz-linear-gradient(left,#c7ccd1 0,#c7ccd1 100%),-moz-radial-gradient(top center,ellipse cover,#e3e5e8 0,rgba(227,229,232,0) 65%);
+background-image: -ms-linear-gradient(left,#c7ccd1 0,rgba(199,204,209,0) 90%),-ms-linear-gradient(right,#c7ccd1 0,rgba(199,204,209,0) 90%),-ms-linear-gradient(left,#c7ccd1 0,#c7ccd1 100%),-ms-radial-gradient(top center,ellipse cover,#e3e5e8 0,rgba(227,229,232,0) 65%);
+background-image: linear-gradient(left,#c7ccd1 0,rgba(199,204,209,0) 90%),linear-gradient(right,#c7ccd1 0,rgba(199,204,209,0) 90%),linear-gradient(left,#c7ccd1 0,#c7ccd1 100%),radial-gradient(top center,ellipse cover,#e3e5e8 0,rgba(227,229,232,0) 65%);
+background-size: calc(50% - 458px) 1px,calc(50% - 458px) 1px,920px 1px,100% 40px;
+-webkit-background-size: -webkit-calc(50% - 458px) 1px,-webkit-calc(50% - 458px) 1px,920px 1px,100% 40px;
+background-position: 100% 0,0% 0,50% 0,50% 0;
+background-repeat: no-repeat;
+padding-top: 40px;
+margin-top: 40px;
+}
+.guaranteIcon{
+font-size: 17pt;
+height: 180px;
+display: table-cell;
+background-color: #ff9900;
+border: 3px dotted;
+color: #fff;
+border-radius: 50%;
+text-align: center;
+vertical-align: middle;
+line-height: 1rem;
+padding-top: 0.5rem;
+transition: border-radius 0.2s,opacity 0.2s;
+padding: 0px 17px;
+}
+.guaranteIcon b {display: block;
+padding: 20px 0px;
+font-size: 40pt;}
+.guaranteTxt{padding: 50px 0px;
+font-size: 20pt;
+line-height: 1.5;
+font-weight: 300;}
+.guaranteeSecWrapper{background: #2d3e50;
+color: #fff;
+margin: 60px 0px 0px 0px;
+padding: 8px 13px;}
+.mediumSubHeading{font-size: 26px;
+padding: 0px 0px 10px 0px;
+font-weight: 300;
+text-align: center;
+line-height: 1.5;
+margin: 0px 0px 0px 0px;}
