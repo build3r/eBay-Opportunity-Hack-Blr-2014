@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<<<<<<< HEAD
     <string name="app_name">SayTrees \nConnect</string>
     <string name="bigo">www.bigo.in</string>
     <string name="facebook_app_id">1575971462631198</string>
@@ -103,5 +104,10 @@
     <string name="completed_default_text">There are no completed items as of now! Please wait for sometime or be the first person on the initiative to complete!</string>
     <string name="location">Address</string>
     <string name="title_activity_notifications">NotificationsActivity</string>
+=======
+    <string name="app_name">SayTreesVolunteer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+>>>>>>> eb9f28778b8f3578845792fd41f95e9ed85bf238
 
 </resources>

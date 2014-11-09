@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView android:id="@+id/imgView"
+        android:layout_width="480dp"
+        android:layout_weight="1"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"> </ImageView>
+    <Button android:layout_height="wrap_content"
+        android:text="Load Picture"
+        android:layout_width="wrap_content"
+        android:id="@+id/buttonLoadPicture"
+        android:layout_weight="0"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imgView"></Button>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/distance"
+        android:layout_alignParentBottom="true"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"/>
+<org.janastu.sample.compasslibrary.CompassView
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/compassView"
+    android:layout_below="@+id/buttonLoadPicture"
+    android:layout_above="@+id/distance"/>
+</RelativeLayout>
