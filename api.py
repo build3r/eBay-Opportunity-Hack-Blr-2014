@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, redirect
 from flask.ext.admin import Admin, form
 from flask.ext.admin.contrib.sqla import ModelView
 import json
@@ -8,6 +8,7 @@ from flask.ext.admin.contrib import fileadmin
 from flask_wtf import Form
 from wtforms import StringField
 from jinja2 import Markup
+from requests import post
 
 app  = Flask(__name__)
 
@@ -220,6 +221,38 @@ def Donors(donor_id=None):
         logging.error(e)
         db.session.rollback()
 
+
+@app.route("/makeDonation", methods= ["POST"])
+def makeDonation():
+    args = request.form
+
+    try:
+        newDonor = Donor(args.get('name'), args.get('donated_amnt'), args.get('email',None), args.get('p_type','onetime'))
+        db.session.add(newDonor)
+        db.session.commit()
+        
+        #r = post("http://rang-de.org/sumukha", data=data)
+        #url = r.json().url
+        #redirect(url)
+        
+
+
+    except Exception,e:
+        logging.error(e)
+        db.session.rollback()
+
+@app.route("/paymentResult", methods=["POST"])
+def payment_result():
+    txn = Trxns(**request.form)
+    db.session.add(txn)
+    db.session.commit()
+
+    if request.form.get("status") == "success":
+        render_template("receipt.html")
+    else:
+        render_template("failed.html")
+    
+        
 admin = Admin(app)
 
 admin.add_view(ModelView(Donor,db.session))
