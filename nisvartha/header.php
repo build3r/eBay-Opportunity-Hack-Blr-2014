@@ -7,7 +7,7 @@
 <link href="css/Style_Master.css" rel="stylesheet" type="text/css" />
 <link href="css/Style_AllPage.css" rel="stylesheet" type="text/css" />
 <link href="css/Table.css" rel="stylesheet" type="text/css" />		
-
+<link href="css/app.css" rel="stylesheet" type="text/css">
 
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">   
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -19,5 +19,4 @@ src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <script src="bootbox.js"></script>
-
 </head>

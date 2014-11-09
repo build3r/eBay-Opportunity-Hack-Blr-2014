@@ -12,8 +12,8 @@ $msg=$_POST['msg'];
 
 
 //echo $data;
-$date=date('Y-m-d');
-$sql=" INSERT INTO sms (content,date) VALUES('".$msg."',{$date})";
+
+$sql=" INSERT INTO sms (content) VALUES('".$msg."')";
 
 if ($conn->query($sql) === TRUE) {
    // echo "New record created successfully";
@@ -44,7 +44,7 @@ foreach($data as $value)
 			$httpcode=0;
 			}
 			
-			$sql2=" INSERT INTO message (mentorID,studentID,smsID,status,reply) VALUES(1,{$value},{$id},{$httpcode},0)";
+			$sql2=" INSERT INTO message (mentorID,studentID,smsID,status) VALUES(1,{$value},{$id},{$httpcode})";
 			
 			if ($conn->query($sql2) === TRUE) {
 			}

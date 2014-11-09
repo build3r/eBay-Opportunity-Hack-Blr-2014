@@ -99,3 +99,52 @@ table.member td p span {
 table.member td.odd {
 	background-color: #ebf8fc;
 }
+
+
+/* For Donate*/
+table.donate {
+	border-collapse: collapse;
+	padding: 0;
+	margin: 0;
+	/*border-top:2px solid #f2730a;*/
+
+	border-top: solid 1px #d2f3fd;
+}
+table.donate td {
+	padding: 3px 0px 3px 7px;
+	border-bottom: solid 1px #d2f3fd;
+	vertical-align: top;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+table.donate td p {
+	font-size: 13px;
+	margin: 0;
+	font-weight: bold;
+	color: #333;
+	padding: 0;
+	margin-bottom: 3px;
+}
+table.donate td img {
+	border: 1px solid #ccc;
+}
+table.donate td p.company {
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	color: #666;
+}
+table.donate td p.company strong {
+	color: #003;
+	font-size: 13px;
+}
+table.donate td p span {
+	display: block;
+	margin-top: -3px;
+	font-weight: bold;
+	font-size: 11px;
+}
+table.donate td.odd {
+	background-color: #ebf8fc;
+}

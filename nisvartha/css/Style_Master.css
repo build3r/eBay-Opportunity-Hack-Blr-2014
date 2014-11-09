@@ -33,7 +33,7 @@ body {
 	-position: fixed;
 	top: 0;
 	z-index: 10;
-	width: 944px;
+	/*width: 944px; */
 	height: 31px;
 	background-image: url(../images/top_header_bg.png);
 	background-repeat: repeat-x;

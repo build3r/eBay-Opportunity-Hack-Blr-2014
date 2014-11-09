@@ -1,5 +1,5 @@
 
-<div id="footer" style="margin-left: 100px">
+<div id="footer">
 	<div id="top_footer_bg"></div>
 	<div id="bottom_footer">
 		<div id="copyright">Nisvartha Foundation supporting higher education since 2009.</div>
