@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fof>
+	<!-- Component back-end options -->
+	<backend>
+		<!-- Dispatcher options -->
+		<dispatcher>
+			<option name="default_view">donors</option>
+		</dispatcher>
+	</backend>
+	
+	<!-- Component front-end options -->
+	<frontend>
+		<!-- Dispatcher options -->
+		<dispatcher>
+			<option name="default_view">donors</option>
+		</dispatcher>
+		<view name="donors">
+			<!-- Task mapping -->
+			<taskmap>
+				<task name="browse">add</task>
+				<task name="read">add</task>
+				<task name="edit">add</task>
+			</taskmap>
+			<!-- Per-task ACL settings. An empty string removes ACL checks. -->
+			<acl>
+				<task name="add"></task>
+			</acl>
+		</view>
+	</frontend>
+</fof>

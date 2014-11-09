@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<access component="com_vidiyal">
+	<section name="vidiyal">
+		<action name="core.admin" title="JACTION_ADMIN" description="JACTION_ADMIN_VIDIYAL_DESC" />
+		<action name="core.manage" title="JACTION_MANAGE" description="JACTION_MANAGE_VIDIYAL_DESC" />
+		<action name="core.create" title="JACTION_CREATE" description="JACTION_CREATE_VIDIYAL_DESC" />
+		<action name="core.delete" title="JACTION_DELETE" description="JACTION_DELETE_VIDIYAL_DESC" />
+		<action name="core.edit" title="JACTION_EDIT" description="JACTION_EDIT_VIDIYAL_DESC" />
+		<action name="core.edit.state" title="JACTION_EDITSTATE" description="JACTION_EDITSTATE_VIDIYAL_DESC" />
+	</section>
+</access>
