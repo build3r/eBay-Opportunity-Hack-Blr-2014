@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/hakumar/Downloads/jersey-bundle-1.17.1.jar"/>
+	<classpathentry kind="lib" path="/opphack/lib/jersey-archive-1.17/lib/jackson-core-asl-1.9.2.jar"/>
+	<classpathentry kind="lib" path="/opphack/lib/jersey-archive-1.17/lib/jackson-jaxrs-1.9.2.jar"/>
+	<classpathentry kind="lib" path="/opphack/lib/jersey-archive-1.17/lib/jackson-mapper-asl-1.9.2.jar"/>
+	<classpathentry kind="lib" path="/opphack/lib/jersey-archive-1.17/lib/jettison-1.1.jar"/>
+	<classpathentry kind="lib" path="/opphack/lib/jaxb-ri-2.2.7/lib/jaxb-api.jar"/>
+	<classpathentry kind="lib" path="/opphack/lib/jaxb-ri-2.2.7/lib/jaxb-impl.jar"/>
+	<classpathentry kind="lib" path="/opphack/lib/objectify-3.1.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
