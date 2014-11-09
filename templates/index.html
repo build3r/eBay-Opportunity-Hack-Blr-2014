@@ -29,6 +29,16 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
+
+$(document).ready(function(){
+$("#submit").on("click", function(e){
+
+  e.preventDefault();
+  var email = $("#email").val();
+  $.get("/donor/"+ email, function(data){console.log(data)})
+})
+
+})
 //-->
 </script>
 <SCRIPT LANGUAGE="JavaScript">
@@ -118,8 +128,8 @@ window.onmouseup=right;
 
                         <br><br><br>
                         <h4>Know you donation details</h4>
-                        
-                        <form id="contactform" action="/donationDetails" class="form" style="background:none;"> 
+
+                        <form id="contactform" action="/donor" class="form" style="background:none;"> 
            
           <p class="contact"><label for="email">Email</label></p> 
           <input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 

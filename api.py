@@ -19,14 +19,6 @@ def index():
 def donation():
     return render_template("donation.html")
 
-@app.route("/donationDetails", methods=["GET","POST"])
-def donationDetails():
-    email = request.form.get("email")
-    phone = request.form.get("phone")
-    details = [{"name":"Rohan","amount":"1000","status":"Operated"}]
-    #details = json.loads(details)
-    #TODO get the details from db and pass to donation details.html
-    return render_template("donationdetails.html", details=details)
 
 @app.route('/child', methods=['GET','POST','DELETE'])
 @app.route('/child/<child_id>', methods=['GET','DELETE'])
@@ -37,7 +29,7 @@ def child(child_id=None):
             return json.dumps(allChildren)
         else:
             Children = Child.query.filter_by(id=child_id)
-            return json.dumps(Children)
+            return render_template("donationdetails.html", details=ddonors)
     try:
         if request.method == 'POST':
             # Decide create/update
@@ -175,14 +167,16 @@ def Transaction():
 
 @app.route('/donor', methods=['GET','POST','DELETE'])
 @app.route('/donor/<donor_id>', methods=['GET','DELETE'])
-def Donors():
+def Donors(donor_id=None):
+    print donor_id,"@@@@@@@@@@@@"
     if request.method == 'GET':
-        if not trxn_id:
+        if not donor_id:
             allDonors = Donor.query.all()
-            return json.dumps(allDonors)
+            return render_template("donationdetails.html", details=allDonors)
         else:
-            Donors = Donor.query.filter_by(id=trxn_id)
-            return json.dumps(Donors)
+            ddonors = Donor.query.filter_by(email_id=donor_id)
+            print ddonors,"##########"
+            return render_template("donationdetails.html", details=ddonors)
     try:
         if request.method == 'POST':
             args = request.form

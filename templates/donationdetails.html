@@ -124,13 +124,13 @@ window.onmouseup=right;
 
                </tr><!--box2tabler1end-->
       </table><!--box2tableend-->  
-      <table width="100%">
-      <tr><th>Child Name</th><th>Amount Donated</th><th>Status</th></tr>
-      <h4>Details here using a for loop {{ details }}</h4>
+      <table width="auto">
+      <tr><th>Donor Name</th><th>Amount Donated</th><th>Payment Type</th></tr>
+      <h4>Your donation details are below:</h4>
          {% for entry in details %}
           <tr><td>{{ entry.name}}</td>
-          <td>{{ entry.amount}}</td>
-          <td>{{ entry.status}}</td></tr>
+          <td>{{ entry.donated_amnt}}</td>
+          <td>{{ entry.payment_type}}</td></tr>
          {% endfor %}
          </table>
        </div><!--box2-->
