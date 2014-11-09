@@ -2,6 +2,15 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
+<<<<<<< HEAD
+    buildToolsVersion '21.1.1'
+    defaultConfig {
+        applicationId 'in.bigo.saytrees'
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 3
+        versionName '1.2'
+=======
     buildToolsVersion "21.1.0"
 
     defaultConfig {
@@ -10,15 +19,46 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+>>>>>>> eb9f28778b8f3578845792fd41f95e9ed85bf238
     }
     buildTypes {
         release {
             runProguard false
+<<<<<<< HEAD
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            zipAlign true
+        }
+    }
+    productFlavors {
+    }
+=======
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+>>>>>>> eb9f28778b8f3578845792fd41f95e9ed85bf238
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+<<<<<<< HEAD
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    // Google Play Services
+    // Support Libraries
+    // You must install or update the Google Repository through the SDK manager to use this dependency.
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    compile project(':facebook')
+    compile files('libs/universal-image-loader-1.9.3.jar')
+    compile files('libs/cloudinaryandroid-1.0.2.jar')
+    compile files('libs/volley.jar')
+
+    // You must install or update the Google Repository through the SDK manager to use this dependency.
+    compile 'com.google.android.gms:play-services:6.+'
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    compile 'com.android.support:support-v4:21.+'
+
+    compile 'com.android.support:appcompat-v7:21.+'
+
+    compile files('libs/Parse-1.7.0.jar')
+=======
+>>>>>>> eb9f28778b8f3578845792fd41f95e9ed85bf238
 }

@@ -10,6 +10,8 @@ h2.filtersHeading.first {
 }
 img.patientImg {
     width: 100%;
+    max-height: 120px;
+	min-height: 120px;
 }
 p.progressBar {
     height: 10px;
@@ -61,7 +63,8 @@ i.fa.fa-search {
     font-size: 17pt;
 }
 .specialSec{border-bottom: 1px solid #eee;
-padding: 0px 0px 8px 0px;}
+padding: 0px 0px 8px 0px;color: #777;
+}
 .donationUpdateSec{border-top: 2px solid #eee;padding: 20px 0px;}
 .donationUpdateSec .amountDonated{font-size: 18pt;
 font-weight: bold;
@@ -85,4 +88,36 @@ padding:0px 0px 0px 0px;margin:23px 0px 13px 0px;}
 .post_time{font-size: 9pt;
 color: #999;}
 .post_img{width:90%;}
-
+h2.filtersHeading {
+font-size: 12pt;
+border-bottom: 1px solid #eee;
+margin: 20px 0px 20px 0px;
+padding: 0px 0px 8px 0px;
+width: 80%;
+font-weight: 600;
+color: #999;
+float: left;
+}
+.searchResultsDisplaySec > .grid4{margin-bottom:20px;}
+.searchResultsDisplaySec > .grid4:nth-child(3n+4){margin-left:0px;}
+h2.fundRaised {
+margin: 13px 0px 8px 0px;
+font-size: 15pt;
+text-align: left;
+}
+p.patientName {
+font-size: 10pt;
+color: #777;
+padding:10px 0px 0px 0px;
+}
+p.timeLeft {
+font-size: 8pt;
+color: #999;
+}
+.filterTap  .arrow{display:none;}
+ul.filterTap > li.active >.arrow{ display: block;
+position: absolute;
+bottom: -40px;
+left: 40%;
+font-size: 50pt;
+color: #eee;}

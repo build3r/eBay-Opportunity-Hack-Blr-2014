@@ -2,6 +2,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
+    android:background="@drawable/splash"
+    tools:context="activities.SplashActivity">
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/bigo"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:id="@+id/company_name"
+        android:layout_alignParentBottom="true"
+        android:textColor="#fff"
+        android:layout_height="wrap_content" />
+
+
+
+=======
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -13,4 +33,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+>>>>>>> eb9f28778b8f3578845792fd41f95e9ed85bf238
 </RelativeLayout>

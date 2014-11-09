@@ -130,11 +130,11 @@
   if (response.status === 'connected') {
 	  alert('auth')
     var uid = response.authResponse.userID;
-	  alert(uid);
+	 alert(uid);
     var accessToken = response.authResponse.accessToken;
 	
 	var c1 = document.getElementById('area1').value;
-	 alert(c1);
+	alert(c1);
     var d1 = document.getElementById('as');
     d1.innerHTML = c1;
   
@@ -148,9 +148,12 @@
     input.setAttribute("value", uid);
 
     //append to form element that you want .
-    document.getElementById("form1").appendChild(input);
-	console.dir("user name is "+response.authResponse);
+   var formObject= document.getElementById("form1");
+   formObject.appendChild(input);
+	
 	console.log("token  "+accessToken);
+	
+	alert("formObject   "+formObject.innerHtml)
 	
   } else if (response.status === 'not_authorized') {
     // the user is logged in to Facebook, 
