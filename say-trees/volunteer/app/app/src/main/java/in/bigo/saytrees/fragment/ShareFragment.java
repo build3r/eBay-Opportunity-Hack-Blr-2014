@@ -70,8 +70,8 @@ public class ShareFragment extends Fragment implements View.OnClickListener{
     private List<GraphUser> tags;
     private static Location CURRENT_LOCATION = null;
     private PendingAction pendingAction = PendingAction.NONE;
-    private String sharingText = "Swachh calls you for action to show you care and clean your share. It is an initiative and a community platform to motivate people towards developing a cleaner India. It helps you to identify and fix the issues buy collaborating with your friends and also socially interested people nearby your place. Get help from people socially through this app https://play.google.com/store/apps/details?id=in.bigo.cleanindia";
-    private String sharingTwitterText = "Swachh calls you to clean your share on cleaner India! Connect here socially https://play.google.com/store/apps/details?id=in.bigo.cleanindia";
+    private String sharingText = "Are you a tree lover? Here is your chance to spread the LOVE through Saytrees! https://play.google.com/store/apps/details?id=in.bigo.saytrees";
+    private String sharingTwitterText = "Are you a tree lover? Here is your chance to spread the LOVE! Connect here https://play.google.com/store/apps/details?id=in.bigo.saytrees";
 
 
     RelativeLayout facebookLayout;

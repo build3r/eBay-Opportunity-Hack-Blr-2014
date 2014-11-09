@@ -85,7 +85,7 @@ RelativeLayout relativeLayout;
 
                 webView.setVisibility(View.VISIBLE);
                 webView.setWebViewClient(new WebViewClient());
-                webView.loadUrl("https://payu.in/");
+                webView.loadUrl("http://saytrees.org/Donate.php");
             }
         });
 

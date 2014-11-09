@@ -64,15 +64,25 @@ public class EventsAdapter extends BaseAdapter {
             holder.like = (ImageView) convertView.findViewById(R.id.like);
             holder.comment = (ImageView) convertView.findViewById(R.id.comment);
             holder.join = (ImageView) convertView.findViewById(R.id.join);
-
-
+            holder.eventIcon = (ImageView) convertView.findViewById(R.id.event_icon);
+holder.organizerName = (TextView) convertView.findViewById(R.id.organizer_name);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        if(position%4 == 0)
+            holder.eventIcon.setImageResource(R.drawable.ic_cal_blue);
+        if(position%4 == 1)
+            holder.eventIcon.setImageResource(R.drawable.ic_cal_orange);
+        if(position%4 == 2)
+            holder.eventIcon.setImageResource(R.drawable.ic_cal_green);
+        if(position%4 == 3)
+            holder.eventIcon.setImageResource(R.drawable.ic_cal_cyan);
 
-        holder.eventName.setText(events.get(position).getOrganizer());
+
+        holder.organizerName.setText("by "+events.get(position).getOrganizer());
+        holder.eventName.setText(events.get(position).getEventName());
         holder.locationName.setText(events.get(position).getLocation());
         Date d = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -103,6 +113,8 @@ public class EventsAdapter extends BaseAdapter {
         TextView eventName;
         TextView locationName;
         TextView date;
+        TextView organizerName;
+        ImageView eventIcon;
         ImageView like;
         ImageView comment;
         ImageView join;

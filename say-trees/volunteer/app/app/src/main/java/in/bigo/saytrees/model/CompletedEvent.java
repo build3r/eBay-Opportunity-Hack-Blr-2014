@@ -40,7 +40,17 @@ public class CompletedEvent implements Serializable{
     private String varieties;
     private String plantedSaplings;
     private String volunteers;
-    private String url;
+
+    public ArrayList<String> getUrl() {
+        return url;
+    }
+
+    public void setUrl(ArrayList<String> url) {
+        for(int i=0;i<url.size();i++)
+            this.url.add(url.get(i));
+    }
+
+    private ArrayList<String> url = new ArrayList<String>();
 
     private String timeStamp;
     private String samplingCount;
@@ -125,14 +135,6 @@ public class CompletedEvent implements Serializable{
 
     public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public String getPlantedSaplings() {

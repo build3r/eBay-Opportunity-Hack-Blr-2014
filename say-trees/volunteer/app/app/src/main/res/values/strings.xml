@@ -84,7 +84,7 @@
     <string name="version">Version</string>
     <string name="title_activity_comments">  Comments</string>
     <string name="add_comment">Add your comment here...</string>
-    <string name="swachhthis">Are you interested in volunteering to clean up this place?</string>
+    <string name="swachhthis">Are you interested in volunteering for this drive?</string>
     <string name="title_activity_image_full_view"> Swachh Photo</string>
     <string name="title_activity_swachh_map"> Swachh Map</string>
     <string name="assigned">Volunteering</string>

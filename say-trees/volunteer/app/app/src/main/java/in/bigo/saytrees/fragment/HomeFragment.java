@@ -32,7 +32,6 @@ import in.bigo.saytrees.activity.SwachhPostActivity;
 import in.bigo.saytrees.adapter.FeedListAdapter;
 import in.bigo.saytrees.controller.SharedPreferencesController;
 import in.bigo.saytrees.customview.EndlessListView;
-import in.bigo.saytrees.model.CommentItem;
 import in.bigo.saytrees.model.CompletedEvent;
 import in.bigo.saytrees.utils.AppConstants;
 import in.bigo.saytrees.utils.AppController;
@@ -113,47 +112,47 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
 
 
         listView.setLoadingView(R.layout.loading_layout);
-        listView.setListener(new EndlessListView.EndLessListener() {
-            @Override
-            public void loadData() {
-                //Log.d("listview", " inside listener count " + URL_FEED + URL_SUFFIX1 + API_LIMIT + URL_SUFFIX2 + API_OFFSET);
-
-
-
-                // making fresh volley request and getting json
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_FEED, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        VolleyLog.d(TAG, "Response feed: " + response.toString());
-                        if (response != null) {
-
-                            API_OFFSET += API_LIMIT;
-                            returnedfeedItems = new ArrayList<CompletedEvent>();
-                            returnedfeedItems = parseJsonFeed(response);
-                            if (returnedfeedItems != null) {
-                              //  for (int i = 0; i < returnedfeedItems.size(); i++)
-                                //    feedItems.add(returnedfeedItems.get(i));
-
-                                listView.addNewData(returnedfeedItems);
-
-                            }
-                            //progressBar.setVisibility(View.GONE);
-                            //listView.setVisibility(View.VISIBLE);
-                        }
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        VolleyLog.d(TAG, "Error: " + error.getMessage());
-                    }
-                });
-
-                // Adding request to volley request queue
-                AppController.getInstance(getActivity().getApplicationContext()).addToRequestQueue(request);
-            }
-        });
+//        listView.setListener(new EndlessListView.EndLessListener() {
+//            @Override
+//            public void loadData() {
+//                //Log.d("listview", " inside listener count " + URL_FEED + URL_SUFFIX1 + API_LIMIT + URL_SUFFIX2 + API_OFFSET);
+//
+//
+//
+//                // making fresh volley request and getting json
+//                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_FEED, null, new Response.Listener<JSONObject>() {
+//
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        VolleyLog.d(TAG, "Response feed: " + response.toString());
+//                        if (response != null) {
+//
+//                            API_OFFSET += API_LIMIT;
+//                            returnedfeedItems = new ArrayList<CompletedEvent>();
+//                            returnedfeedItems = parseJsonFeed(response);
+//                            if (returnedfeedItems != null) {
+//                              //  for (int i = 0; i < returnedfeedItems.size(); i++)
+//                                //    feedItems.add(returnedfeedItems.get(i));
+//
+//                                listView.addNewData(returnedfeedItems);
+//
+//                            }
+//                            //progressBar.setVisibility(View.GONE);
+//                            //listView.setVisibility(View.VISIBLE);
+//                        }
+//                    }
+//                }, new Response.ErrorListener() {
+//
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        VolleyLog.d(TAG, "Error: " + error.getMessage());
+//                    }
+//                });
+//
+//                // Adding request to volley request queue
+//                AppController.getInstance(getActivity().getApplicationContext()).addToRequestQueue(request);
+//            }
+//        });
 
         listView.setAdapter(listAdapter);
 
@@ -213,37 +212,37 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
 
 
         // making fresh volley request and getting json
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_FEED , null, new Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
-                VolleyLog.d(TAG, "Response feed: " + response.toString());
-                if (response != null) {
-
-                    API_OFFSET += API_LIMIT;
-                    returnedfeedItems = new ArrayList<CompletedEvent>();
-                    returnedfeedItems = parseJsonFeed(response);
-                    if (returnedfeedItems != null) {
-                        for (int i = 0; i < returnedfeedItems.size(); i++)
-                            feedItems.add(returnedfeedItems.get(i));
-
-                        listView.addNewData(feedItems);
-
-                     }
-                    //progressBar.setVisibility(View.GONE);
-                    //listView.setVisibility(View.VISIBLE);
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-            }
-        });
-
-        // Adding request to volley request queue
-        AppController.getInstance(this.getActivity().getApplicationContext()).addToRequestQueue(request);
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_FEED , null, new Response.Listener<JSONObject>() {
+//
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                VolleyLog.d(TAG, "Response feed: " + response.toString());
+//                if (response != null) {
+//
+//                    API_OFFSET += API_LIMIT;
+//                    returnedfeedItems = new ArrayList<CompletedEvent>();
+//                    returnedfeedItems = parseJsonFeed(response);
+//                    if (returnedfeedItems != null) {
+//                        for (int i = 0; i < returnedfeedItems.size(); i++)
+//                            feedItems.add(returnedfeedItems.get(i));
+//
+//                        listView.addNewData(feedItems);
+//
+//                     }
+//                    //progressBar.setVisibility(View.GONE);
+//                    //listView.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                VolleyLog.d(TAG, "Error: " + error.getMessage());
+//            }
+//        });
+//
+//        // Adding request to volley request queue
+//        AppController.getInstance(this.getActivity().getApplicationContext()).addToRequestQueue(request);
 
     }
 
@@ -265,15 +264,24 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
             while (iterator.hasNext()) {
                 String id = iterator.next().toString();
                 JSONObject feedObj = (JSONObject) feedArray.get(id);
+                JSONArray feedImageArray ;
 
                 CompletedEvent item = new CompletedEvent();
                 item.setId(id);
                 item.setEventId(feedObj.getString("eventId"));
 
                 // Image might be null sometimes
-                String image = feedObj.isNull("url") ? null : feedObj
-                        .getString("url");
-                item.setImage(image);
+                //String image = feedObj.isNull("url") ? null : feedObj
+                  //      .getString("url");
+                //item.setImage(image);
+
+                feedImageArray = feedObj.getJSONArray("url");
+                ArrayList<String> tempUrls = new ArrayList<String>();
+
+                for(int i=0; i<feedImageArray.length();i++) {
+                    tempUrls.add((String) feedImageArray.get(i));
+                }
+                item.setUrl(tempUrls);
                 item.setVarieties(feedObj.getString("varieties"));
                 //item.setProfilePic(AppConstants.GRAPH_API_URL + feedObj.getString("userId") + AppConstants.GRAPH_API_IMAGE_SUFFIX);
                 item.setTimeStamp(feedObj.getString("timestamp"));
@@ -286,14 +294,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Endl
                 item.setMonth(feedObj.getString("month"));
                 item.setDay(feedObj.getString("day"));
                 item.setLocation(feedObj.getString("location"));
-                //item.setAddress(feedObj.getString("address"));
-                item.setAddress("Address");
+                item.setAddress(feedObj.getString("address"));
+
 
 
                 // url might be null sometimes
-                String feedUrl = feedObj.isNull("url") ? null : feedObj
-                        .getString("url");
-                item.setUrl(feedUrl);
+//                String feedUrl = feedObj.isNull("url") ? null : feedObj
+//                        .getString("url");
+//                item.setUrl(feedUrl);
 
                 parsedItems.add(item);
             }

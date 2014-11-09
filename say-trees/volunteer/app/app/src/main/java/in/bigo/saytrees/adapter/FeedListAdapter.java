@@ -127,8 +127,8 @@ public class FeedListAdapter extends BaseAdapter {
         holder.organizer.setText(item.getOrganizer());
 
         // Feed image
-        if (item.getImage() != null) {
-            imageLoader.displayImage(item.getImage(), holder.feedImageView);
+        if (item.getUrl() != null) {
+            imageLoader.displayImage(item.getUrl().get(0), holder.feedImageView);
             holder.feedImageView.setVisibility(View.VISIBLE);
 
         } else {
@@ -434,7 +434,7 @@ public class FeedListAdapter extends BaseAdapter {
 
         int listSize = extraFeedItems.size();
         for(int i = 0; i < listSize; ++i) {
-            Log.d("feed items ", extraFeedItems.get(i).getImage());
+           // Log.d("feed items ", extraFeedItems.get(i).getImage());
             this.feedItems.add(extraFeedItems.get(i));
         }
 

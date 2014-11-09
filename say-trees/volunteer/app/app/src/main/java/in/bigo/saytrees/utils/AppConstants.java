@@ -25,6 +25,7 @@ public class AppConstants {
 
     //Hackaton
     public static final String FETCH_EVENTS = "/api/fetchevents";
+    public static final String JOIN_EVENT = "/protected/joinevent";
 
     public static final String CLOUDINARY_IMAGEURL_PREFIX = "";
     public static final String CLOUDINARY_IMAGEURL_SUFFIX = "";

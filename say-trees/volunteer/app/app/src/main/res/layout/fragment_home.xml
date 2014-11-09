@@ -39,6 +39,7 @@
         android:id="@+id/swachh"
         android:layout_width="85dp"
         android:layout_height="85dp"
+        android:visibility="gone"
         android:layout_gravity="bottom|right"
         android:layout_margin="13dp"
         android:src="@drawable/ic_plus" />

@@ -3,6 +3,7 @@ package in.bigo.saytrees.customview;
 /**
  * Created by SPARK on 18/10/14.
  */
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -53,23 +54,27 @@ public class EndlessListView extends ListView implements OnScrollListener {
     //	4
     public void addNewData(List<CompletedEvent> data) {
         this.removeFooterView(footer);
-        adapter.append(data);
-        adapter.notifyDataSetChanged();
-        isLoading = false;
+
+        if (data != null && data.size() > 0) {
+
+            adapter.append(data);
+            adapter.notifyDataSetChanged();
+            isLoading = false;
+        }
     }
 
     @Override
-    public void onScroll(AbsListView view, int firstVisibleItem,int visibleItemCount, int totalItemCount) {
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 
-        if(getAdapter() == null)
+        if (getAdapter() == null)
             return;
 
-        if(getAdapter().getCount() == 0)
+        if (getAdapter().getCount() == 0)
             return;
 
         int l = visibleItemCount + firstVisibleItem;
 
-        if(l >= totalItemCount && !isLoading){
+        if (l >= totalItemCount && !isLoading) {
 
             //	add footer layout
             this.addFooterView(footer);
@@ -78,14 +83,14 @@ public class EndlessListView extends ListView implements OnScrollListener {
             isLoading = true;
 
             //	call interface method to load new data
-            listener.loadData();
+//            listener.loadData();
         }
     }
 
     //	Calling order from MainActivity
     //	1
     public void setLoadingView(int resId) {
-        footer = ((LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(resId, null);		//		footer = (View)inflater.inflate(resId, null);
+        footer = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(resId, null);        //		footer = (View)inflater.inflate(resId, null);
         this.addFooterView(footer);
     }
 
@@ -102,7 +107,7 @@ public class EndlessListView extends ListView implements OnScrollListener {
     }
 
     //	interface
-    public interface EndLessListener{
+    public interface EndLessListener {
         public void loadData();
     }
 }

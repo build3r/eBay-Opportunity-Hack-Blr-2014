@@ -197,7 +197,8 @@ public class EventsFragment extends Fragment {
                 item.setEventTime(feedObj.getString("eventTime"));
                 item.setSaplingCount(feedObj.getString("saplingCount"));
                 item.setOrganizer(feedObj.getString("organizer"));
-                item.setLocation(feedObj.getString("location"));
+                item.setLocation(feedObj.getString("address"));
+                item.setEventName(feedObj.getString("eventName"));
                 item.setTimestamp(feedObj.getString("timestamp"));
                 item.setVolunteersCount(feedObj.getInt("volunteersCount"));
 

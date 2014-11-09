@@ -95,7 +95,7 @@ public class SettingsFragment extends Fragment {
         helpText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.swachh.org"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.saytrees.org"));
                 startActivity(browserIntent);
             }
         });

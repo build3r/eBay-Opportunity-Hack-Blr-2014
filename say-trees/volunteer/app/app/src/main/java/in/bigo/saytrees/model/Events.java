@@ -7,19 +7,19 @@ public class Events {
 
     /**
      * {
-     545e381ae4b0da992da912b2: {
-     _id: {
-     _time: 1415460890,
-     _machine: -458171751,
-     _inc: 766055090,
-     _new: false
-     },
-     saplingCount: "100",
-     organizer: "EBay",
-     eventTime: "2014-11-08 21:02:44",
-     location: "Madurai",
-     timestamp: "1415460890925",
-     volunteersCount: 0
+     saplingCount: "15000",
+     month: "Jan",
+     organizer: "Sachin",
+     eventTime: "2014-09-28 09:25:07",
+     eventName: "Mumbai Sapling drive",
+     location: "19.07509724212452,72.83729553222656",
+     landmark: "Bandra",
+     day: 28,
+     timestamp: "1415515664423",
+     volunteersCount: 0,
+     completed: false,
+     address: "South Avenue, Santacruz West, Mumbai, Maharashtra 400052, India, ",
+     volunteeredCount: 0
      }
      }
      */
@@ -30,6 +30,16 @@ public class Events {
     private String eventTime;
     private String location;
     private String timestamp;
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    private String eventName;
 
     public int getVolunteersCount() {
         return volunteersCount;
