@@ -1,0 +1,248 @@
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="http://malsup.github.io/min/jquery.form.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </head>
+    
+    <body>
+        <style>
+            .ui-contenta {
+				position: absolute;
+				top: 40px;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				padding: 0;
+			}
+            #foot{
+                margin-bottom: 200px
+            }
+            #map{
+                height: 100%;
+                position:absolute;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+				margin: 0;
+				padding: 0;
+            }
+        </style>
+        <div id="one" data-role="page" data-theme="b">
+            <div data-role="header"><h2>SayTrees</h2></div>
+            <div role="main" class="ui-content">
+                <div  style:height="80%">
+                <img src="http://saytrees.org/images/logo.png"/></br>
+                <div id="content">
+                    <p>The tree finder app is one of its kind tree profiling application, it recognizes a tree from the picture taken of its leaves.</p>
+                    <p>So go ahead, and take a picture of a leaf and let the backend algorithm find out which tree the leaf belongs to!</p>
+                </div>
+                <div id="table">
+                    <h3 id="name">Name : Neem</h3>
+                    <p id="order">Order : xyzabc</p>
+                    <p id="family">Family : xyzabc</p>
+                    <p id="genus">Genus : xyzabc</p>
+                    <p id="species">Species : xyzabc</p>
+                    <p id="binomial">Bionomial name : xyzabc</p>
+                    <p id="image">image : xyzabc</p>
+
+                </div>
+                </div>
+            </div>
+            <div data-role="footer" id="foot" data-theme="b">
+                <form id="myForm" method="post" action="filename_listener" enctype="multipart/form-data">
+			{% csrf_token %}                        
+                        <input title="filename" height="150px" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext ui-btn-b"  type="file"  enctype="multipart/form-data"  id="file-input" name="filename" accept="image/*;capture=camera">
+                    
+                    <input id="sub" type="button" onclick="run(filename)" value="Submit">
+                </form>
+                <a href="#two" class="ui-btn ui-shadow ui-corner-all">Show page "two"</a>
+            </div>
+        </div>
+        <script>
+		function run (arg) {
+                
+               // console.log(arg.value);
+                name = arg.value.substring(12, arg.value.length);
+                newName = '/mnt/TagMe/Validation/'+name[0]+'/'+name.substring(2, name.length);
+                //alert(newName);
+                $.post("http://23.251.145.42:8000/filename_listener",{'filename':newName},function(data,status){
+
+		console.log(data);
+                if(data['predict'] == '1') {
+                  alert('Rosiea');
+              } else if(data['predict'] == '2') {
+                   alert('Argentia');
+              } else if(data['predict'] == '3') {
+                   alert('Gulmohar');
+              } else if(data['predict'] == '4') {
+                   alert('mahogany');
+              }
+	});
+                // body...
+            }
+
+            $('#table').hide();
+            $('#myForm').ajaxForm({
+                            url: 'filename_listener',
+                            dataType: 'json',
+                            success: function (response) {
+                                $('#content').hide();
+                                alert("The server says: " + response);
+                                $('#name').innerHTML("Name : " + response.name);
+                                $('#order').innerHTML("Order : " + response.treeorder);
+                                $('#family').innerHTML("Family : " + response.family);
+                                $('#genus').innerHTML("Genus : " + response.genus);
+                                $('#species').innerHTML("Species : " + response.species);
+                                $('#bionomial').innerHTML("Bionomial name : " + response.bionomial_name);
+                                $('#image').innerHTML("Image : <img src=\"" + response.image_url + "\"/>");
+                                $('#table').show();
+                                $('#foot').hide();
+                            }
+                        })
+            ;
+        </script>
+        <div id="two" data-role="page" data-theme="b">
+            <div data-role="header"><h2>SayTrees</h2></div>
+            <div role="main" class="ui-content ui-contenta">
+               
+                    <div id="map"></div>
+                
+                
+        <script src="http://leafletjs.com/dist/leaflet.js"></script>
+                <link rel="stylesheet" href="http://leafletjs.com/dist/leaflet.css" />
+                <script>
+                    map = L.map('map');
+                    map.invalidateSize(true);
+                    var baseLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {});
+                    baseLayer.addTo(map);
+                    map.fitBounds([[50, 40], [-20, -40]]);
+                    map.setMaxBounds([[-90, 180], [90, -180]]);
+                    map.setView([22.9667, 77.5667], 5);
+
+                    $(window).load(function () {
+                        setTimeout(function () {
+                            map.invalidateSize();
+                        }, 1);
+                    });
+
+                    var circle = L.circle([22.9667, 77.5667], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([13.929026, 75.411701], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([14.259349, 78.526325], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([12.114815, 76.142292], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([21.854129, 85.409259], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([24.219687, 80.421467], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([25.871850, 77.081623], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([29.604766, 78.773517], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([23.637250, 81.014728], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([21.915297, 74.049397], 50, {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+
+                    L.circle([26.049649, 79.432697], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([23.234050, 74.928303], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([19.697182, 78.839435], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([24.879233, 83.211993], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([27.618105, 93.583086], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([23.415642, 80.816974], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([23.778078, 81.278400], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([19.075380, 81.542072], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([18.492917, 74.444904], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+                    L.circle([18.096539, 80.751056], 50, {
+                        color: 'blue',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5
+                    }).addTo(map);
+
+                    L.polygon([
+                        [21.097592, 73.302326],
+                        [21.772531, 81.322345],
+                        [22.017184, 84.486407],
+                        [16.944128, 79.850177],
+                        [17.322084, 75.060139]
+                    ]).addTo(map);
+                </script>
+            </div>
+            </div>
+        </div>
+    </body>
+
+</html>
