@@ -14,6 +14,8 @@ public class Patient {
 	private float percentageRaised;
 	private String timeLeft;
 	private String patientName;
+	private int fbShares;
+	private int tweets;
 	
 	public Patient(){	
 	}
@@ -73,6 +75,22 @@ public class Patient {
 	}
 	public void setCaseTitle(String caseTitle) {
 		this.caseTitle = caseTitle;
+	}
+
+	public int getFbShares() {
+		return fbShares;
+	}
+
+	public void setFbShares(int fbShares) {
+		this.fbShares = fbShares;
+	}
+
+	public int getTweets() {
+		return tweets;
+	}
+
+	public void setTweets(int tweets) {
+		this.tweets = tweets;
 	}
 	
 }

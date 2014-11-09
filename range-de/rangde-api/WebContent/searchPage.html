@@ -7,74 +7,30 @@
     <link rel="stylesheet" href="css/searchPage.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <style type="text/css">
-    	select{min-height: 30px;min-width:200px;
-padding: 8px;}
-h2.filtersHeading {
-font-size: 12pt;
-border-bottom: 1px solid #eee;
-margin: 20px 0px 10px 0px;
-padding: 0px 0px 3px 0px;
-width: 80%;
-font-weight: 600;
-color: #999;
-}
-.searchResultsDisplaySec > .grid4{margin-bottom:20px;}
-.searchResultsDisplaySec > .grid4:nth-child(3n+4){margin-left:0px;}
-h2.fundRaised {
-margin: 13px 0px 8px 0px;
-font-size: 15pt;
-text-align: left;
-}
-p.patientName {
-font-size: 10pt;
-color: #777;
-padding:10px 0px 0px 0px;
-}
-p.timeLeft {
-font-size: 8pt;
-color: #999;
-}
-.filterTap  .arrow{display:none;}
-ul.filterTap > li.active >.arrow{ display: block;
-position: absolute;
-bottom: -40px;
-left: 40%;
-font-size: 50pt;
-color: #eee;}
-.headerNavLinksSec > li{display:inline-block;float:right;padding:8px 13px;font-size:12pt;}
-.headerNavLinksSec > li.first{padding-right:0px;}
-.headerSecWrapper {
-background: #2d3e50;
-color: #fff;
-margin: 0px 0px 30px 0px;
-padding: 8px 13px;
-}
-.headerSecWrapper a{color:#fff;}
+    	select{min-height: 30px;min-width:200px;padding: 8px;}
     </style>
 </head>
 
-<body class="homePage">
-</body>
-
+<body class="searchPage">
 <div class="gridWrapper headerSecWrapper">
     <div class="pageWrapper">
         <div class="gridWrapper">
         	<div class="grid4">
-        		<img src="images/RangDeLife.png" alt="" height="80px"/>
+        		<a href="/rangde-api/index.html"><img src="images/RangDeLife.png" alt="" height="80px"/></a>
         	</div>
         	<div class="grid8 pull-down-20">
         		<ul class="section headerNavLinksSec">
         			<li class="first"><a href="" class="signUpBtn">Sign Up</a></li>
         			<li><a href="" class="loginBtn">Login</a></li>        			
-        			<li><a href="">Saved Life</a></li>
+        			<li><a href="/rangde-api/index.html">Saved Life</a></li>
         			<li><a href="">Volunteer</a></li>
-        			<li><a href="">Donate</a></li>
-        			
+        			<li><a href="/rangde-api/searchPage.html">Donate</a></li>        			
         		</ul>
         	</div>            
         </div>
 	</div>
 </div>
+<div class="gridWrapper">
 <div class="pageWrapper">
         <div class="gridWrapper">
             <div class="grid4">
@@ -85,7 +41,7 @@ padding: 8px 13px;
                     </li>
                 </ul>
                 <h2 class="filtersHeading">Categories</h2>
-                <ul class="section pull-bottom-30">
+                <ul class="section pull-bottom-0">
                     <li class="section modernCheckBoxWrapper"  data-bind="#lifeThreating">
 						<span class="modernCheckBox"></span>
 						<span class="modernCheckBoxLabel">Life Threating</span>
@@ -100,7 +56,7 @@ padding: 8px 13px;
                     </li>
                 </ul>
                 <h2 class="filtersHeading">Volunteer</h2>
-                <ul class="section pull-bottom-30">
+                <ul class="section pull-bottom-0">
                     <li class="section modernRadioButtonWrapper" data-bind="#allPatient" data-bind-group="volunteer">
 						<span class="modernRadioButton"></span>
 						<label class="modernRadioButtonLabel">All</label>
@@ -115,7 +71,7 @@ padding: 8px 13px;
                     </li>
                 </ul>
                 <h2 class="filtersHeading">Location</h2>
-                <ul class="section pull-bottom-30">
+                <ul class="section pull-bottom-0">
                     <li>
                         <select name="location" id="">
                             <option value="">Bangalore</option>
@@ -125,7 +81,7 @@ padding: 8px 13px;
                     </li>
                 </ul>
                 <h2 class="filtersHeading">Language</h2>
-                <ul class="section pull-bottom-30">
+                <ul class="section pull-bottom-0">
                     <li>
                         <select name="language" id="">
                             <option value="">Hindi</option>
@@ -135,7 +91,7 @@ padding: 8px 13px;
                     </li>
                 </ul>
                 <h2 class="filtersHeading">Time Left</h2>
-                <ul class="section pull-bottom-30">
+                <ul class="section pull-bottom-0">
                     <li class="section modernRadioButtonWrapper" data-bind="#timeLeft1" data-bind-group="timeLeft">
 						<span class="modernRadioButton"></span>
 						<label class="modernRadioButtonLabel">Less than 5 days</label>
@@ -156,7 +112,7 @@ padding: 8px 13px;
                     </li>
                 </ul>
                 <h2 class="filtersHeading">Percent Funded</h2>
-                <ul class="section pull-bottom-30">
+                <ul class="section pull-bottom-0">
                     <li class="section modernRadioButtonWrapper" data-bind="#percentFunded1" data-bind-group="percentFunded">
 						<span class="modernRadioButton"></span>
 						<label class="modernRadioButtonLabel">All</label>
@@ -177,7 +133,7 @@ padding: 8px 13px;
                     </li>
                 </ul>
                 <h2 class="filtersHeading">Funding Status</h2>
-                <ul class="section pull-bottom-30">
+                <ul class="section pull-bottom-0">
                     <li class="section modernRadioButtonWrapper" data-bind="#fundingStatusAll" data-bind-group="fundingStatus">
 						<span class="modernRadioButton"></span>
 						<label class="modernRadioButtonLabel">All</label>

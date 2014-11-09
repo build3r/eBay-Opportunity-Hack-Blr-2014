@@ -26,47 +26,49 @@
             margin-left: 0px;
             width: 19.9569%;
         }
+    .submitBtn, .loginBtn {
+		background: rgba(52, 204, 4, 0.69);
+	}	
+	span.amountRaised {
+font-size: 18pt;
+font-weight: bold;
+color: #333;
+}
+.amountRaisedSec {
+font-size: 12pt;
+color: #777;
+}
     </style>
-    <style type='text/css' media='screen'>
-    body {
-      text-align:center;
-      background:#f7f7f7;
-      font-family:georgia;
-      font-size:22px;
-      text-shadow:1px 1px 1px #FFF;
-      margin:200px;
-    }
-
-    a { color:#999; text-decoration:none; }
-    label { display: block; }
-    form { margin: 25px; text-align:left }
-    form input[type=text] { padding:5px; width:90%; border:solid 1px #CCC;}
-    form textarea { padding:5px; width:90%; border:solid 1px #CCC; height:100px;}
-
-    .box { width:350px; }
-
-     footer {
-       font-size:12px;
-     }
-     form a, footer a { color:#40738d; }
-  </style>
   
   
 </head>
 
-<body class="homePage">
-</body>
-<div class="gridWrapper">
+<body class="patientPage">
+<div class="gridWrapper headerSecWrapper">
     <div class="pageWrapper">
         <div class="gridWrapper">
-            <h2>Page intro text something will come here</h2>
+        	<div class="grid4">
+        		<a href="/rangde-api/index.html"><img src="images/RangDeLife.png" alt="" height="80px"/></a>
+        	</div>
+        	<div class="grid8 pull-down-20">
+        		<ul class="section headerNavLinksSec">
+        			<li class="first"><a href="" class="signUpBtn">Sign Up</a></li>
+        			<li><a href="" class="loginBtn">Login</a></li>        			
+        			<li><a href="/rangde-api/index.html">Saved Life</a></li>
+        			<li><a href="">Volunteer</a></li>
+        			<li><a href="/rangde-api/searchPage.html">Donate</a></li>        			
+        		</ul>
+        	</div>            
         </div>
-
+	</div>
+	</div>
+<div class="section">
+    <div class="pageWrapper">
         <div class="gridWrapper">
             <div class="grid8">
                 <ul>
                     <li>
-                        <img src="http://www.rangde.org/images/landingPage/madness_pro_img7.jpg" alt="Mohan" class="mainImage" />
+                        <img src="http://www.rangde.org/images/landingPage/madness_pro_img7.jpg" alt="Mohan" class="mainImage" width="98.5%"/>
                     </li>
                     <li>
                         <ul>
@@ -199,7 +201,6 @@
       </div>
     </div>
   </div>
-                    </p>
                     <p> <u>Nothing</u> gets posted on your wall. Only Facebook name & photo are used.</p>
                 </div>
             </div>
@@ -211,29 +212,30 @@
                             <span class="txt-left"><i class="fa fa-globe"></i> Bangalore, KA</span>  <span class="txt-right pull-right"><i class="fa fa-tag"></i> Life Threatening</span>
                         </p>
                     </li>
-                    <li class="pull-down-20">
-                        <p>Rs. <strong>100,000</strong> of 3,00,000</p>
+                    <li class="pull-down-20 secHeading amountRaisedSec">
+                        <span class="amountRaised">Rs.100,000</span> of 3,00,000
                     </li>
                     <li class="pull-down-10">
                         <p class="progressBar">
                             <span class="raisedBar" style="width:20%"></span> 
                         </p>
                     </li>
-                    <li class="helpText txt-center">Raised By 120 Angels in 1 month</li>
+                    <li class="helpText txt-center pull-down-10">Raised By 120 Angels in 1 month</li>
                     <li class="pull-down-20 txt-center">
                         <button class="submitBtn">Donate Now</button>
                     </li>
-                    <li class="pull-down-20 txt-center">
-                        <button class="submitBtn">Volunteer Time</button>
+                    <li class="pull-down-20 txt-center pull-bottom-20">
+                        <a class="" style="text-decoration:underline;">+ Volunteer Time</a>
                     </li>
                 </ul>
                 <ul class="gridWrapper highlightBoxWhite pull-down-20">
                     <li class="grid6">
                         <ul>
-                            <li><span class="facebookLikesCount">543</span>
-                            </li>
-                            <li>
-                                <button class="facebookShareButton"><i class="fa fa-facebook"></i> Share</button>
+                            <li><span class="facebookLikesCount" > </span>
+                            <p id="fbLikesCount">
+                            </li>                            
+                            <li id= fbshare>                               
+                                <button id="fBshare"></button>
                             </li>
                         </ul>
                     </li>
@@ -334,5 +336,50 @@
       $('.popbox').popbox();
     });
   </script>
+  
+   <script> 
+           var input = document.createElement("div");
 
+  	    input.setAttribute("class", "fb-share-button");
+
+  	    //input.setAttribute("data-href", "http://www.rangde.org/");//for demo
+  	   
+  	    input.setAttribute("data-href", document.URL)//For prod
+
+  	    input.setAttribute("data-layout", "icon_link");
+  	    //append to form element that you want .
+  	    document.getElementById("fBshare").appendChild(input);                     
+  	  </script>                
+                                
+                 <script>
+                 
+                 var likes=document.createElement("h4")
+                  var xmlHttp = null;
+
+   						 xmlHttp = new XMLHttpRequest();
+  				 		 xmlHttp.open( "GET", "http://graph.facebook.com/rangdeorg?fields=likes", false );
+   						 xmlHttp.send( null );
+   						 console.log("likes  "+xmlHttp.responseText);
+   						 var obj = JSON.parse(xmlHttp.responseText);
+   					 //alert(obj.likes);
+   					 likes.setAttribute("value",obj.likes)
+                	 document.getElementById("fbLikesCount").innerHTML =+obj.likes;
+                 
+                 </script>               
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
 </html>

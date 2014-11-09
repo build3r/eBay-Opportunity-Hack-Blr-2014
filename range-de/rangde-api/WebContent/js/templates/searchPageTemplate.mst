@@ -1,7 +1,7 @@
 <div class="grid4">
     <ul class="section highlightBoxWhite">
         <li class="imagesec">
-            <img src="{{imageSrc}}" alt="" class="patientImg">
+            <a href="/rangde-api/rest/patient/{{patientId}}"><img src="{{imageSrc}}" alt="" class="patientImg"></a>
         </li>
         <li class="section">
         <ul class="section">
