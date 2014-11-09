@@ -1,4 +1,4 @@
-from flask import Flask, url_for, redirect
+from flask import Flask, url_for, redirect, logging
 from flask.ext.admin import Admin, form
 from flask.ext.admin.contrib.sqla import ModelView
 import json
@@ -224,33 +224,38 @@ def Donors(donor_id=None):
 
 @app.route("/makeDonation", methods= ["POST"])
 def makeDonation():
-    args = request.form
-
+    args = request.args
+    txn = Trxns()
     try:
         newDonor = Donor(args.get('name'), args.get('donated_amnt'), args.get('email',None), args.get('p_type','onetime'))
         db.session.add(newDonor)
         db.session.commit()
-        
+
+        db.session.add(txn)
+        db.session.commit()
         #r = post("http://rang-de.org/sumukha", data=data)
         #url = r.json().url
-        #redirect(url)
+        return redirect(url_for("payment_result", txn_id=txn.id))
         
 
 
     except Exception,e:
-        logging.error(e)
+        print e
         db.session.rollback()
+        return redirect(url_for("payment_result", txn_id=txn.id, status="success"))
 
-@app.route("/paymentResult", methods=["POST"])
+@app.route("/paymentResult")
 def payment_result():
-    txn = Trxns(**request.form)
-    db.session.add(txn)
+    #txn = Trxns.query.filter_by(id=request.args.get("txn_id")).one()
+    #txn.status = "success"
+    #txn.add(txn)
     db.session.commit()
+    return render_template("receipt.html")
 
     if request.form.get("status") == "success":
-        render_template("receipt.html")
+        return render_template("receipt.html")
     else:
-        render_template("failed.html")
+        return render_template("failed.html")
     
         
 admin = Admin(app)

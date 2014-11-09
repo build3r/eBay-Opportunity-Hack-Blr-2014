@@ -3,7 +3,7 @@ import os
 from werkzeug import secure_filename
 from sqlalchemy import event
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, logging
 from flask.ext.sqlalchemy import SQLAlchemy
 
 import utils
@@ -37,7 +37,7 @@ class Child(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20))
     address = db.Column(db.String(100))
-    pic_path = db.Column(db.String(500)) # Json dump of list of pic files. hoping to hell 500 is enough
+    pic_paths = db.Column(db.String(500)) # Json dump of list of pic files. hoping to hell 500 is enough
     donors = db.Column(db.String(500))  # Json dump of list of donor ids. hoping 500 is enough
     surgeries = db.Column(db.String(500))  # Json dump of list of Surgery ids. hoping 500 is enough
     status = db.Column(db.String(20)) # Enum of progress
@@ -106,7 +106,7 @@ class Trxns(db.Model):
         for each in kwargs.keys():
             if each in utils.get_user_attributes(Trxns):
                 vars(self).update({each:kwargs.get(each)})
-        assert self.status in trxn_status_enums, logging.warn('invalid transaction status')
+#        assert self.status in trxn_status_enums, logging.getLogger().warn('invalid transaction status')
 
 #class Receipt(db.Model):
 #    id = db.Column(db.Integer, primary_key=True)
