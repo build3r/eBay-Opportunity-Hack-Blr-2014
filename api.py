@@ -27,7 +27,7 @@ def child(child_id=None):
     if request.method == 'GET':
         if not child_id:
             allChildren = Child.query.all()
-            return json.dumps(allChildren)
+            return render_template("child.html", child = allChildren)
         else:
             Children = Child.query.filter_by(id=child_id)
             return render_template("donationdetails.html", details=ddonors)
