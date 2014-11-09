@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+include ':app', ':facebook',  ':google-play-services'
+=======
+include ':app'
+>>>>>>> eb9f28778b8f3578845792fd41f95e9ed85bf238
