@@ -1,0 +1,139 @@
+<div class="row">
+	<div class="col-md-12 report-container">
+		<div class="msg  alert"></div>
+		<div class="form-container">
+			<form action="http://ph-indaily-124.eva.ebay.com:8080/NBIRestService/nbi/common/found/report" METHOD="POST">
+				<div class="row card">
+					<div class="section-head">
+						Child information
+					</div>
+					<div class="photo-container col-md-3">
+						<img src="img/no-image.jpg" />
+						<div class="uplaod-button btn btn-primary">
+							Upload image
+						</div>
+						<input type="hidden" class="photo-url" value="" name="subjectPhotoURL"/>
+						<input class="hide" id="realUploadBtn" name="photo" type="file" accept="image/*">
+					</div>
+					<div class="col-md-9">
+						<div class="row ">
+							<div class="col-md-6 input-items">
+								<label for="firstName">Name</label>
+								<input type="text" placeholder="Name" id="firstName" name="subjectFirstName" />
+							</div>
+							<div class="col-md-6 input-items">
+								<label for="subjectMiddleName">Middle Name</label>
+								<input type="text" placeholder="Middle Name" id="subjectMiddleName" name="subjectMiddleName" />
+							</div>
+							<div class="col-md-6 input-items">
+								<label for="lastName">Last Name</label>
+								<input type="text" id="lastName" placeholder="Last name" name="subjectLastName" />
+							</div>
+							<div class="col-md-6 input-items">
+								<label for="gender">Gender</label>
+								<select id="gender" name="subjectGender">
+									<option>Select gender</option>
+									<option>M</option>
+									<option>F</option>
+									<option>Other</option>
+								</select>
+							</div>
+							<!-- <div class="col-md-6 input-items">
+								<label for="missingDate">Missing date</label>
+								<input type="date" id="missingDate" placeholder="Missing date" name="missing-date" />
+							</div>
+							<div class="col-md-6 input-items">
+								<label for="age">Age</label>
+								<input type="number" id="age" placeholder="Approx age" name="age" />
+							</div> -->
+							<div class="col-md-6 input-items">
+								<label for="language">Language</label>
+								<input type="text" id="language" placeholder="Language" name="subjectLanguage" />
+							</div>
+							<div class="col-md-6 input-items">
+								<label for="guardianFirstName">Guardian's First Name</label>
+								<input type="text" id="guardianFirstName" placeholder="Guardian's First Name" name="guardianFirstName" />
+							</div>
+							<div class="col-md-6 input-items">
+								<label for="guardianMiddleName">Guardian's Middle Name</label>
+								<input type="text" id="guardianMiddleName" placeholder="Guardian's Middle Name" name="guardianMiddleName" />
+							</div>
+							<div class="col-md-6 input-items">
+								<label for="guardianLastName">Guardian's Last Name</label>
+								<input type="text" id="guardianLastName" placeholder="Guardian's Last Name" name="guardianLastName" />
+							</div>
+							<div class="col-md-6 input-items">
+								<label for="guardianRelation">Guardian's Relation</label>
+								<input type="text" id="guardianRelation" placeholder="Guardian's Relation" name="guardianRelation" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row card">
+					<div class="section-head">
+						Contact information
+					</div>
+						<div class="col-md-6 input-items">
+							<label for="reporterEmail">Contact email</label>
+							<input type="email" id="reporterEmail" placeholder="Email" name="reporterEmail" />
+						</div>
+						<div class="col-md-6 input-items">
+							<label for="reporterPhoneNumber">Phone Number</label>
+							<input type="tel" id="reporterPhoneNumber" placeholder="Phone Number" name="reporterPhoneNumber" />
+						</div>
+				</div>
+				<div class="row card">
+					<div class="section-head">
+						Missing location information
+					</div>
+						<div class="col-md-6 input-items">
+							<label for="city">City</label>
+							<input type="text" id="city" placeholder="City" name="subjectMissingCity" />
+						</div>
+						<div class="col-md-6 input-items">
+							<label for="state">State</label>
+							<input type="text" id="state" placeholder="State" name="subjectMissingState" />
+						</div>
+				</div>
+				<div class="row card">
+					<div class="section-head">
+						Found location information
+					</div>
+						<div class="col-md-6 input-items">
+							<label for="subjectFoundCity">Found city</label>
+							<input type="text" id="subjectFoundCity" placeholder="Found city" name="subjectFoundCity" />
+						</div>
+						<div class="col-md-6 input-items">
+							<label for="subjectMissingState">Found state</label>
+							<input type="text" id="subjectMissingState" placeholder="Found state" name="subjectMissingState" />
+						</div>
+				</div>
+				<div class="row card">
+					<div class="section-head">
+						Child home location information
+					</div>
+						<div class="col-md-6 input-items">
+							<label for="nativeAddress">Native address</label>
+							<input type="text" id="nativeAddress" placeholder="Native address" name="nativeAddress" />
+						</div>
+						
+						<div class="col-md-6 input-items">
+							<label for="nativeCity">Native city</label>
+							<input type="text" id="nativeCity" placeholder="Native city" name="nativeCity" />
+						</div>
+						<div class="col-md-6 input-items">
+							<label for="nativeState">Native state</label>
+							<input type="text" id="nativeState" placeholder="Native state" name="nativeState" />
+						</div>
+						<div class="col-md-6 input-items">
+							<label for="nativeDistrict">Native district</label>
+							<input type="text" id="nativeDistrict" placeholder="Native district" name="nativeDistrict" />
+						</div>
+						<div class="col-md-12 submit-wrapper">
+							<input type="submit" name="submit" value="Submit" class="btn btn-primary submit" />
+						</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

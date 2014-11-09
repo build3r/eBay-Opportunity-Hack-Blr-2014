@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.paypal.oh.dos.LostReport" table="lost_report">
+		<id name="id" column="id" type="int">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="caseId" column="case_id" type="string"></property>
+		<property name="subjectFirstName" column="subject_first_name" type="string"></property>
+		<property name="subjectMiddleName" column="subject_middle_name" type="string"></property>
+		<property name="subjectLastName" column="subject_last_name" type="string"></property>
+		<property name="subjectNickName" column="subject_nick_name" type="string"></property>
+		<property name="subjectGender" column="subject_gender" type="string"></property>
+		<property name="subjectPhotoURL" column="subject_photo_url" type="string"></property>
+		<!-- <property name="missingDate" column="subject_missing_date" type="date"></property>
+		<property name="subjectDOB" column="subject_dob" type="date"></property> -->
+		<property name="subjectLanguage" column="subject_language" type="string"></property>
+		<property name="subjectMissingCity" column="subject_missing_city" type="string"></property>
+		<property name="subjectMissingState" column="subject_missing_state" type="string"></property>
+		<property name="contactEmail" column="contact_email" type="string"></property>
+		<property name="contactPhoneNumber" column="contact_phone_number" type="string"></property>
+		<property name="guardianFirstName" column="guardian_first_name" type="string"></property>
+		<property name="guardianMiddleName" column="guardian_middle_name" type="string"></property>
+		<property name="guardianLastName" column="guardian_last_name" type="string"></property>
+		<property name="guardianRelation" column="guardian_relation" type="string"></property>
+		<property name="nativeState" column="native_state" type="string"></property>
+		<property name="nativeCity" column="native_city" type="string"></property>
+		<property name="nativeDistrict" column="native_district" type="string"></property>
+		<property name="nativeAddress" column="native_address" type="string"></property>
+	</class>
+	
+	<class name="com.paypal.oh.dos.FoundReport" table="found_report">
+		<id name="id" column="id" type="int">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="caseId" column="case_id" type="string"></property>
+		<property name="subjectFirstName" column="subject_first_name" type="string"></property>
+		<property name="subjectMiddleName" column="subject_middle_name" type="string"></property>
+		<property name="subjectLastName" column="subject_last_name" type="string"></property>
+		<property name="subjectNickName" column="subject_nick_name" type="string"></property>
+		<property name="subjectGender" column="subject_gender" type="string"></property>
+		<property name="subjectPhotoURL" column="subject_photo_url" type="string"></property>
+		<!-- <property name="missingDate" column="subject_missing_date" type="date"></property>
+		<property name="subjectFoundDate" column="subject_found_date" type="date"></property>
+		<property name="subjectDOB" column="subject_dob" type="date"></property> -->
+		<property name="subjectLanguage" column="subject_language" type="string"></property>
+		<property name="subjectMissingCity" column="subject_missing_city" type="string"></property>
+		<property name="subjectMissingState" column="subject_missing_state" type="string"></property>
+		<property name="subjectFoundCity" column="subject_found_city" type="string"></property>
+		<property name="subjectFoundState" column="subject_found_state" type="string"></property>
+		<property name="reporterEmail" column="reporter_email" type="string"></property>
+		<property name="reporterPhoneNumber" column="reporter_phone_number" type="string"></property>
+		<property name="guardianFirstName" column="guardian_first_name" type="string"></property>
+		<property name="guardianMiddleName" column="guardian_middle_name" type="string"></property>
+		<property name="guardianLastName" column="guardian_last_name" type="string"></property>
+		<property name="guardianRelation" column="guardian_relation" type="string"></property>
+		<property name="nativeState" column="native_state" type="string"></property>
+		<property name="nativeCity" column="native_city" type="string"></property>
+		<property name="nativeDistrict" column="native_district" type="string"></property>
+		<property name="nativeAddress" column="native_address" type="string"></property>
+	</class>
+	
+	<class name="com.paypal.oh.dos.MatchRecord" table="match_records">
+		<id name="id" column="id" type="int">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="lostCaseId" column="lost_case_id" type="string"></property>
+		<property name="foundCaseId" column="found_case_id" type="string"></property>
+	</class>
+	
+</hibernate-mapping>

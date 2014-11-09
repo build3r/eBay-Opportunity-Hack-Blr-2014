@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+ http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	
+	<context:component-scan base-package="com.paypal.oh"/>
+	<mvc:annotation-driven />
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	</bean> 
+	
+	 <!-- Configure to plugin JSON as request and response in method handler -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+     
+    <!-- Configure bean to convert JSON to POJO and vice versa -->
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    </bean> 
+    
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"  value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/needbaseindia"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="shivam"></property>
+	</bean>
+	
+	<bean id="mysessionFactory"	class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		
+		<property name="mappingResources">
+			<list>
+			<value>needbaseindia.hbm.xml</value>
+			</list>
+		</property>
+		
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">
+	<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+	
+	<!-- <bean id="lostReportDao" class="com.paypal.oh.dao.LostReportDao">
+		<property name="template" ref="template"></property>
+	</bean> -->
+	
+	</beans>
