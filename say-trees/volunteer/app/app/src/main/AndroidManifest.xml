@@ -43,11 +43,11 @@
         android:name=".application.SayTreesApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:largeHeap="true"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="in.bigo.saytrees.activity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
@@ -58,12 +58,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="in.bigo.saytrees.activity.LauncherActivity"
+            android:name=".activity.LauncherActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="in.bigo.saytrees.activity.LoginSignUpActivity"
+            android:name=".activity.LoginSignUpActivity"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
@@ -79,7 +79,7 @@
             android:authorities="com.facebook.app.NativeAppCallContentProvider1575971462631198"
             android:exported="true" />
 
-        <receiver android:name="in.bigo.saytrees.utils.FBBroadcastReceiver" >
+        <receiver android:name=".utils.FBBroadcastReceiver" >
             <intent-filter>
                 <action android:name="com.facebook.platform.AppCallResultBroadcast" />
             </intent-filter>
@@ -90,30 +90,29 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name="in.bigo.saytrees.activity.SwachhPostActivity"
-            android:label="@string/title_activity_swachh_post"
+            android:name=".activity.SwachhPostActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/title_activity_swachh_post"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAAw2jLciK_DT_PyKCqAHvyUzMqay4zdgg" />
+            android:value="AIzaSyB5ZeuhYlxOyP9eF8yH5UfRmBLMr_iOuaY" />
 
-<!--
-
+        <!--
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="8B:6D:09:85:17:6A:70:22:4F:3A:D6:46:8F:B7:93:1F:E7:28:08:3B;in.bigo.cleanindia" />
--->
+        -->
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="in.bigo.saytrees.activity.ProfileActivity"
+            android:name=".activity.ProfileActivity"
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme" >
         </activity>
@@ -138,7 +137,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="in.bigo.saytrees.receiver.ParsePushReceiver"
+            android:name=".receiver.ParsePushReceiver"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.parse.push.intent.RECEIVE" />
@@ -153,18 +152,22 @@
             android:resource="@drawable/ic_launcher" />
 
         <activity
-            android:name="in.bigo.saytrees.activity.CommentsActivity"
+            android:name=".activity.CommentsActivity"
             android:label="@string/title_activity_comments"
             android:windowSoftInputMode="adjustResize" >
         </activity>
         <activity
-            android:name="in.bigo.saytrees.activity.ImageFullViewActivity"
-            android:theme="@android:style/Theme.Holo"
-            android:label="@string/title_activity_image_full_view" >
+            android:name=".activity.ImageFullViewActivity"
+            android:label="@string/title_activity_image_full_view"
+            android:theme="@android:style/Theme.Holo" >
         </activity>
         <activity
-            android:name="in.bigo.saytrees.activity.SwachhMapActivity"
+            android:name=".activity.SwachhMapActivity"
             android:label="@string/title_activity_swachh_map" >
+        </activity>
+        <activity
+            android:name=".activity.NotificationsActivity"
+            android:label="@string/title_activity_notifications" >
         </activity>
     </application>
 

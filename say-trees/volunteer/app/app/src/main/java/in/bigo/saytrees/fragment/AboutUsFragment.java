@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+
+import com.parse.ParseObject;
 
 import in.bigo.saytrees.R;
 import in.bigo.saytrees.activity.LauncherActivity;
@@ -22,6 +27,11 @@ public class AboutUsFragment extends Fragment {
     WebView webView;
     View rootView;
     LauncherActivity activityAboutUsFragment;
+RelativeLayout relativeLayout;
+    EditText volunteerName;
+    EditText emailAddress;
+    EditText phoneNumber;
+    Button sendButton;
 
     public AboutUsFragment() {
     }
@@ -49,9 +59,39 @@ public class AboutUsFragment extends Fragment {
 
     private void initUI() {
 
+        volunteerName = (EditText) rootView.findViewById(R.id.volname);
+        emailAddress = (EditText) rootView.findViewById(R.id.email);
+        phoneNumber = (EditText) rootView.findViewById(R.id.phone);
         webView = (WebView) rootView.findViewById(R.id.webView);
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://test.payu.in/_payment");
+        relativeLayout =(RelativeLayout) rootView.findViewById(R.id.layout);
+        sendButton = (Button) rootView.findViewById(R.id.sendButt);
+
+
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String username = volunteerName.getText().toString();
+                String mobileNumber = phoneNumber.getText().toString();
+                String emailaddr = emailAddress.getText().toString();
+
+                ParseObject dataObject = new ParseObject("saytrees");
+                dataObject.put("name", username);
+                dataObject.put("mobilenumber", mobileNumber);
+                dataObject.put("occupation", emailaddr);
+                dataObject.saveInBackground();
+                relativeLayout.setVisibility(View.GONE);
+
+                webView.setVisibility(View.VISIBLE);
+                webView.setWebViewClient(new WebViewClient());
+                webView.loadUrl("https://payu.in/");
+            }
+        });
+
+
+
+
     }
 
 
@@ -71,7 +111,7 @@ public class AboutUsFragment extends Fragment {
         try {
             activityAboutUsFragment = ((LauncherActivity) activity);
             activityAboutUsFragment.onSectionAttached(
-                    4);
+                    3);
         } catch (Exception e) {
             e.printStackTrace();
             getActivity().finish();

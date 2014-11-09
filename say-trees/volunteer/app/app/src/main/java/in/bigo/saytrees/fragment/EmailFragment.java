@@ -38,15 +38,15 @@ public class EmailFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_email, container, false);
-        startActivity(createEmailIntent("karthik@bigo.in", "Suggestion for Swachh Bharat", "Hi,"));
+        startActivity(createEmailIntent("info@saytrees.org", "Query to SayTrees team", "Hi,"));
         return rootView;
     }
 
     private void sendMail() {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_EMAIL, "karthik@bigo.in");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Suggestion for Swachh Bharat");
+        intent.putExtra(Intent.EXTRA_EMAIL, "info@saytrees.org");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Query to SayTrees team");
         intent.putExtra(Intent.EXTRA_TEXT, "Hi,");
         startActivity(Intent.createChooser(intent, "Send Email"));
     }
@@ -78,7 +78,7 @@ public class EmailFragment extends Fragment {
         send.putExtra(Intent.EXTRA_SUBJECT, subject);
         send.putExtra(Intent.EXTRA_TEXT, message);
 
-        return Intent.createChooser(send, "Your Title Here");
+        return Intent.createChooser(send, "Open with");
     }
 
 

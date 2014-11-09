@@ -43,7 +43,7 @@ public class SayTreesApplication extends android.app.Application {
 
         // Specify an Activity to handle all pushes by default.
         //PushService.setDefaultPushCallback(this, SplashActivity.class);
-
+        //getAppKey();
 
         roboticThin = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
         roboticLight = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");

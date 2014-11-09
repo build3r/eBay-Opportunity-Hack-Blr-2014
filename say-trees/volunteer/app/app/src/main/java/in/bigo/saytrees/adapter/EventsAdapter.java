@@ -83,7 +83,7 @@ public class EventsAdapter extends BaseAdapter {
         {
             e.printStackTrace();
         }
-        sdf.applyPattern("dd MM yyyy");
+        sdf.applyPattern("dd MMM yyyy");
         String output = sdf.format(d);
 
         holder.date.setText(output.substring(0, 6));

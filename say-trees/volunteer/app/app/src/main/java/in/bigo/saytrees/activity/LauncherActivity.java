@@ -103,11 +103,11 @@ public class LauncherActivity extends Activity
                 fragmentCounter = 2;
                 break;
             case 3:
-                fragment = CompletedFragment.newInstance();
+                fragment = AboutUsFragment.newInstance();
                 fragmentCounter = 3;
                 break;
             case 4:
-                fragment = AboutUsFragment.newInstance();
+                fragment = CompletedFragment.newInstance();
                 fragmentCounter = 4;
                 break;
             case 5:

@@ -60,7 +60,7 @@ LauncherActivity activityCompletedFragment;
         try {
             activityCompletedFragment = ((LauncherActivity) activity);
             activityCompletedFragment.onSectionAttached(
-                    3);
+                    4);
         } catch (Exception e) {
             e.printStackTrace();
             getActivity().finish();

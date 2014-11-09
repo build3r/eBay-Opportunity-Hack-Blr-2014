@@ -42,12 +42,11 @@
         <item>HOME</item>
         <item>MAP</item>
         <item>UPCOMING</item>
-        <item>KIND</item>
-        <item>TREE SPECIES</item>
+        <item>DONATE</item>
+        <item>PLANT SPECIES</item>
+        <item>EMAIL US</item>
         <item>SHARE LOVE</item>
         <item>SETTINGS</item>
-        <item>DONATE</item>
-
     </string-array>
     <string-array name="severity_array">
         <item>High</item>
@@ -66,7 +65,6 @@
         <item>@drawable/ic_email</item>
         <item>@drawable/ic_share</item>
         <item>@drawable/ic_settings</item>
-
     </array>
 
     <!-- Content Description -->
@@ -89,11 +87,9 @@
     <string name="swachhthis">Are you interested in volunteering to clean up this place?</string>
     <string name="title_activity_image_full_view"> Swachh Photo</string>
     <string name="title_activity_swachh_map"> Swachh Map</string>
-
     <string name="assigned">Volunteering</string>
     <string name="completed">Completed</string>
     <string name="on_web">We are on web</string>
-
 
     <!-- sharing -->
     <string name="share_facebook">Share on Facebook</string>
@@ -104,14 +100,8 @@
     <string name="share_viber">Share on Viber</string>
     <string name="share_others">Share on other apps</string>
     <string name="share">Share on</string>
-
-
     <string name="completed_default_text">There are no completed items as of now! Please wait for sometime or be the first person on the initiative to complete!</string>
-
-
     <string name="location">Address</string>
-
-
-
+    <string name="title_activity_notifications">NotificationsActivity</string>
 
 </resources>
